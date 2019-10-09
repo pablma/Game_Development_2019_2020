@@ -25,9 +25,8 @@ def get_y_samples(samples):
     return samples[:, -1]
 
 
-#Theta = [0, 0]     Theta0 = 0       Theta1 = 0
-#Añadiendo la columna de 1's podemos obtener el valor de h con un producto de vectores haciendo [1  x] * [theta theta]
 def h(x, theta):
+    print(theta.T)
     return np.dot(theta.T, x)
 
 
@@ -137,20 +136,18 @@ def gradient_desc_multi_var(data):
       
     for i in range(1500):
 
-        aux0 = theta[0] - (alpha / m) * summatory_theta0(m, theta, x, y)
-        aux1 = theta[1] - (alpha / m) * summatory_theta1(m, theta, x, y)
-        aux2 = theta[2] - (alpha / m) * summatory_theta1(m, theta, x, y)
+        for j in range(len(theta)):
 
-        J = cost_func(theta, m, x, y)
+            aux = theta[j] - (alpha / n_examples) * summatory(n_examples, theta, x, y, j)
 
-        theta[0] = aux0
-        theta[1] = aux1
-        theta[2] = aux2
-        
-        print(J)  
+            theta[j] = aux
+
+            J = cost_func(theta, n_examples, x, y)
+            print(J)
+          
 
 
-    show_graph(theta, aux_x, y)
+    #show_graph(theta, aux_x, y)
 
 
 
