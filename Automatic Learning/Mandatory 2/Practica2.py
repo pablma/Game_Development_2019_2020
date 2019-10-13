@@ -52,13 +52,11 @@ def get_graph(data, grades, admissions):
 
 
 def sigmoid_func(data):
-    return 1 / 1 + np.exp(-data)
+    return 1 / (1 + np.exp(-data))
 
 
 def cost(theta, x_samples, y_samples):
     m = x_samples.shape[0]
-
-    print(1 - (sigmoid_func(x_samples @ theta)))
 
     return np.dot((-1 / m) , (np.transpose((np.log(sigmoid_func(x_samples @ theta)))) @ y_samples + (np.transpose(np.log(1 - sigmoid_func(x_samples @ theta)))) @ (1 - y_samples))) 
 
