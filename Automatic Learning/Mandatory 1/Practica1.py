@@ -26,7 +26,6 @@ def get_y_samples(samples):
 
 
 def h(x, theta):
-    print(theta.T)
     return np.dot(theta.T, x)
 
 
@@ -133,7 +132,10 @@ def gradient_desc_multi_var(data):
     theta = np.zeros([n_variables + 1,], dtype='float')
     alpha = 0.01
 
-      
+    print(theta)
+    print (np.transpose(theta))
+
+    """
     for i in range(1500):
 
         for j in range(len(theta)):
@@ -146,7 +148,7 @@ def gradient_desc_multi_var(data):
             print(J)
           
 
-
+    """
     #show_graph(theta, aux_x, y)
 
 

@@ -3,6 +3,20 @@ from pandas.io.parsers import read_csv
 import matplotlib.pyplot as plt
 
 
+def main():
+    data1 = carga_csv("ex2data1.csv")
+    
+    grades = get_grades(data1)
+    admissions = get_admission(data1)
+
+    theta = np.zeros(grades.shape[1] + 1)
+
+    grades = np.hstack([np.ones([grades.shape[0], 1]), grades])
+
+    print(gradient(theta, grades, admissions))
+    print(cost(theta, grades, admissions))
+
+
 # Function to load a csv file
 def carga_csv(file_name):
     """ carga el fichero csv especificado y lo devuelve en un array de numpy """
@@ -23,10 +37,7 @@ def get_admission(data):
     return data[:, -1]
      
 
-def get_graph(data):
-
-    grades = get_grades(data)
-    admissions = get_admission(data)
+def get_graph(data, grades, admissions):
 
     # gets an array with the index of the positive examples
     pos = np.where(admissions == 1)
@@ -41,24 +52,21 @@ def get_graph(data):
 
 
 def sigmoid_func(data):
-    exps = np.exp(data)
-    
-    
-    """
-    rows = exps.shape[0]
-    cols = exps.shape[1]
+    return 1 / 1 + np.exp(-data)
 
-    sig_a = np.ndarray(shape=(rows, cols))
 
-    
-    for i in range(rows):
-        for j in range(cols):
-            sig_a[rows, cols] = 1 / 1 + exps[rows + cols]
-    
-    return sig_a
-    """
+def cost(theta, x_samples, y_samples):
+    m = x_samples.shape[0]
 
-data1 = carga_csv("ex2data1.csv")
-#get_graph(data1)
-a = 3
-print(sigmoid_func(a))
+    print(1 - (sigmoid_func(x_samples @ theta)))
+
+    return np.dot((-1 / m) , (np.transpose((np.log(sigmoid_func(x_samples @ theta)))) @ y_samples + (np.transpose(np.log(1 - sigmoid_func(x_samples @ theta)))) @ (1 - y_samples))) 
+
+
+def gradient(theta, x_samples, y_samples):
+    m = x_samples.shape[0]
+
+    return (x_samples.T @ (sigmoid_func(x_samples @ theta) - y_samples)) / m
+
+
+main()
