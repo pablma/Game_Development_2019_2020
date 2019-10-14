@@ -20,9 +20,10 @@ def main():
     opt_theta = optimize_params(theta, grades, admissions)     
     
     _cost = cost(opt_theta, grades, admissions)
-    print(_cost)
+
     
-    #get_graph(grades, admissions, opt_theta)  
+    get_graph(grades, admissions, opt_theta)  
+    pinta_frontera_recta(grades, admissions, opt_theta)
 
 
 # Function to load a csv file
@@ -58,8 +59,30 @@ def get_graph(grades, admissions, theta):
     # Draws the positive and negative examples
     plt.scatter(gr[pos, 0], gr[pos, 1], marker='+', c='red')
     plt.scatter(gr[neg, 0], gr[neg, 1], c='blue')
-    plt.plot([30, 90], [theta[0] + theta[1] * 30, theta[0] + theta[1] * 90])
+    print(sigmoid_func(theta.T * 30))
     plt.show()
+
+
+def pinta_frontera_recta(x_samples, y_samples, theta):
+ 
+    plt.figure()
+    x1_min, x1_max = x_samples[:, 0].min(), x_samples[:, 0].max()
+    x2_min, x2_max = x_samples[:, 1].min(), x_samples[:, 1].max()
+
+    xx1, xx2 = np.meshgrid(np.linspace(x1_min, x1_max),
+    np.linspace(x2_min, x2_max))
+
+    h = sigmoid_func(np.c_[np.ones((xx1.ravel().shape[0], 1)),
+    xx1.ravel(),
+    xx2.ravel()].dot(theta))
+    h = h.reshape(xx1.shape)
+
+    # el cuarto parámetro es el valor de z cuya frontera se
+    # quiere pintar
+    plt.contour(xx1, xx2, h, [0.5], linewidths=1, colors='b')
+    plt.savefig("frontera.pdf")
+    plt.show()
+    plt.close()
 
 
 def sigmoid_func(data):
