@@ -22,7 +22,7 @@ def main():
     _cost = cost(opt_theta, grades, admissions)
 
     
-    get_graph(grades, admissions, opt_theta)  
+    #get_graph(grades, admissions, opt_theta)  
     pinta_frontera_recta(grades, admissions, opt_theta)
 
 
@@ -59,27 +59,37 @@ def get_graph(grades, admissions, theta):
     # Draws the positive and negative examples
     plt.scatter(gr[pos, 0], gr[pos, 1], marker='+', c='red')
     plt.scatter(gr[neg, 0], gr[neg, 1], c='blue')
-    print(sigmoid_func(theta.T * 30))
-    plt.show()
+    #plt.show()
 
 
 def pinta_frontera_recta(x_samples, y_samples, theta):
  
     plt.figure()
-    x1_min, x1_max = x_samples[:, 0].min(), x_samples[:, 0].max()
-    x2_min, x2_max = x_samples[:, 1].min(), x_samples[:, 1].max()
+    
+    _x = x_samples[:, 1:x_samples.shape[1]]
+
+    # gets an array with the index of the positive examples
+    pos = np.where(y_samples == 1)
+    # gets an array with the index of the negative examples
+    neg = np.where(y_samples == 0)
+
+    x1_min, x1_max = _x[:, 0].min(), _x[:, 0].max()
+    x2_min, x2_max = _x[:, 1].min(), _x[:, 1].max()
+
 
     xx1, xx2 = np.meshgrid(np.linspace(x1_min, x1_max),
     np.linspace(x2_min, x2_max))
 
-    h = sigmoid_func(np.c_[np.ones((xx1.ravel().shape[0], 1)),
-    xx1.ravel(),
-    xx2.ravel()].dot(theta))
+
+    h = sigmoid_func(np.c_[np.ones((xx1.ravel().shape[0], 1)),  xx1.ravel(), xx2.ravel()]@theta)
     h = h.reshape(xx1.shape)
+
+    plt.scatter(_x[pos, 0], _x[pos, 1], marker='+', c='red')
+    plt.scatter(_x[neg, 0], _x[neg, 1], c='blue')
 
     # el cuarto parámetro es el valor de z cuya frontera se
     # quiere pintar
-    plt.contour(xx1, xx2, h, [0.5], linewidths=1, colors='b')
+    plt.contour(xx1, xx2, h, [0.5], linewidths=1, colors='blue')
     plt.savefig("frontera.pdf")
     plt.show()
     plt.close()
