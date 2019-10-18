@@ -2,9 +2,13 @@ import numpy as np
 from pandas.io.parsers import read_csv
 import matplotlib.pyplot as plt
 import scipy.optimize as opt
+from sklearn.preprocessing import PolynomialFeatures
 
 
 def main():
+    """
+    PART 1
+
     data1 = carga_csv("ex2data1.csv")
     
     grades = get_grades(data1)
@@ -24,6 +28,29 @@ def main():
     
     #get_graph(grades, admissions, opt_theta)  
     pinta_frontera_recta(grades, admissions, opt_theta)
+    print(opt_theta)
+    evaluate_log_reg(theta, grades)
+    """
+
+    data2 = carga_csv("ex2data2.csv")
+    
+    grades = get_grades(data2)
+    admissions = get_admission(data2)
+
+    theta = np.zeros(grades.shape[1] + 1) 
+
+    grades = np.hstack([np.ones([grades.shape[0], 1]), grades])
+
+    #get_graph(grades, admissions)
+
+    poly = PolynomialFeatures(6)
+
+    poly.fit_transform(grades)
+
+    print(grades)
+
+
+
 
 
 # Function to load a csv file
@@ -46,7 +73,7 @@ def get_admission(data):
     return data[:, -1]
      
 
-def get_graph(grades, admissions, theta):
+def get_graph(grades, admissions):
 
     gr = grades[:, 1:grades.shape[1]]
 
@@ -116,6 +143,18 @@ def optimize_params(theta, x_samples, y_samples):
     theta_opt = result[0]
 
     return theta_opt
+
+
+def evaluate_log_reg(theta, x_samples):
+    num_admitted = 0
+    _x = x_samples[:, 1:x_samples.shape[1]]
+
+    print(_x)
+
+    #for i in range(len(_x)):
+
+
+
 
 
 main()
