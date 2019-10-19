@@ -44,14 +44,16 @@ def main():
 
     #get_graph(grades, admissions)
 
-    poly = PolynomialFeatures(6)
+    poly = PolynomialFeatures(degree=6)
     poly.fit_transform(grades)
 
     #_reg_cost = reg_cost(theta, grades, admissions, l)
     #print(_reg_cost)
 
-    #opt_reg_theta = optimize_reg_params(theta, grades, admissions, l)
-    #print(opt_theta)
+    opt_reg_theta = optimize_reg_params(theta, grades, admissions, l)
+    #print(opt_reg_theta)
+    
+    plot_decisionboundary(grades, admissions, opt_reg_theta, poly)
 
 
 
@@ -126,6 +128,36 @@ def pinta_frontera_recta(x_samples, y_samples, theta):
     plt.close()
 
 
+def plot_decisionboundary(x_samples, y_samples, theta, poly):
+    plt.figure()
+
+    _x = x_samples[:, 1:x_samples.shape[1]]
+
+    # gets an array with the index of the positive examples
+    pos = np.where(y_samples == 1)
+    # gets an array with the index of the negative examples
+    neg = np.where(y_samples == 0)
+
+    x1_min, x1_max = _x[:, 0].min(), _x[:, 0].max()
+    x2_min, x2_max = _x[:, 1].min(), _x[:, 1].max()
+
+    xx1, xx2 = np.meshgrid(np.linspace(x1_min, x1_max),
+    np.linspace(x2_min, x2_max))
+    
+    h = sigmoid_func(poly.fit_transform(np.c_[xx1.ravel(), xx2.ravel()]).dot(theta))
+    
+    h = h.reshape(xx1.shape)
+
+    plt.scatter(_x[pos, 0], _x[pos, 1], marker='+', c='red')
+    plt.scatter(_x[neg, 0], _x[neg, 1], c='blue')
+    
+    plt.contour(xx1, xx2, h, [0.5], linewidths=1, colors='g')
+    
+    plt.savefig("boundary.pdf")
+    plt.show()
+    plt.close()
+
+
 def sigmoid_func(x):
     return 1 / (1 + np.exp(-x))
 
@@ -164,11 +196,9 @@ def gradient(theta, x_samples, y_samples):
     return (x_samples.T @ (h - y_samples)) / m
 
 
-def reg_gradient(theta, x_samples, y_samples, l, j):
-    _grad = gradient(theta, x_samples, y_samples)
-    _reg_g = (np.dot(l, theta[j])) / x_samples.shape[0]
-
-    return _grad + _reg_g
+def reg_gradient(theta, x_samples, y_samples, l):
+    grad = gradient(theta, x_samples, y_samples)
+    return grad + (l * theta) / x_samples.shape[0]
 
 
 def optimize_params(theta, x_samples, y_samples):
