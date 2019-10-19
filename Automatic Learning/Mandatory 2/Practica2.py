@@ -6,8 +6,9 @@ from sklearn.preprocessing import PolynomialFeatures
 
 
 def main():
+
     """
-    PART 1
+    #PART 1
 
     data1 = carga_csv("ex2data1.csv")
     
@@ -24,30 +25,33 @@ def main():
     opt_theta = optimize_params(theta, grades, admissions)     
     
     _cost = cost(opt_theta, grades, admissions)
-
-    
+  
     #get_graph(grades, admissions, opt_theta)  
     pinta_frontera_recta(grades, admissions, opt_theta)
-    print(opt_theta)
-    evaluate_log_reg(theta, grades)
+ 
+    evaluate_log_reg(opt_theta, grades)
     """
-
+    
     data2 = carga_csv("ex2data2.csv")
     
     grades = get_grades(data2)
     admissions = get_admission(data2)
 
     theta = np.zeros(grades.shape[1] + 1) 
+    l = 1
 
     grades = np.hstack([np.ones([grades.shape[0], 1]), grades])
 
     #get_graph(grades, admissions)
 
     poly = PolynomialFeatures(6)
-
     poly.fit_transform(grades)
 
-    print(grades)
+    #_reg_cost = reg_cost(theta, grades, admissions, l)
+    #print(_reg_cost)
+
+    #opt_reg_theta = optimize_reg_params(theta, grades, admissions, l)
+    #print(opt_theta)
 
 
 
@@ -122,20 +126,49 @@ def pinta_frontera_recta(x_samples, y_samples, theta):
     plt.close()
 
 
-def sigmoid_func(data):
-    return 1 / (1 + np.exp(-data))
+def sigmoid_func(x):
+    return 1 / (1 + np.exp(-x))
+
+
+def h(theta, x):
+    return sigmoid_func(theta.T @ x)
 
 
 def cost(theta, x_samples, y_samples):
     m = x_samples.shape[0]
+    h = sigmoid_func(x_samples @ theta)
 
-    return np.dot((-1 / m) , (np.transpose((np.log(sigmoid_func(x_samples @ theta)))) @ y_samples + (np.transpose(np.log(1 - sigmoid_func(x_samples @ theta)))) @ (1 - y_samples))) 
+    return np.dot((-1 / m) , (np.transpose((np.log(h))) @ y_samples + (np.transpose(np.log(1 - h))) @ (1 - y_samples))) 
+
+
+def reg_cost(theta, x_samples, y_samples, l):
+    _cost = cost(theta, x_samples, y_samples)
+    _sum = summatory(theta, x_samples.shape[1])
+    c = np.dot(l, _sum) / (np.dot(2, x_samples.shape[0]))
+
+    return _cost + c
+
+
+def summatory(theta, n):
+    sum = 0
+    for i in range(n):
+        sum += (theta[i]) ** 2
+
+    return sum
 
 
 def gradient(theta, x_samples, y_samples):
     m = x_samples.shape[0]
+    h = sigmoid_func(x_samples @ theta)
 
-    return (x_samples.T @ (sigmoid_func(x_samples @ theta) - y_samples)) / m
+    return (x_samples.T @ (h - y_samples)) / m
+
+
+def reg_gradient(theta, x_samples, y_samples, l, j):
+    _grad = gradient(theta, x_samples, y_samples)
+    _reg_g = (np.dot(l, theta[j])) / x_samples.shape[0]
+
+    return _grad + _reg_g
 
 
 def optimize_params(theta, x_samples, y_samples):
@@ -145,16 +178,25 @@ def optimize_params(theta, x_samples, y_samples):
     return theta_opt
 
 
+def optimize_reg_params(theta, x_samples, y_samples, l):
+    result = opt.fmin_tnc(func=reg_cost, x0=theta, fprime=reg_gradient, args=(x_samples, y_samples, l))
+    theta_opt = result[0]
+
+    return theta_opt
+
+
 def evaluate_log_reg(theta, x_samples):
     num_admitted = 0
-    _x = x_samples[:, 1:x_samples.shape[1]]
-
-    print(_x)
-
-    #for i in range(len(_x)):
+    #_x = x_samples[:, 1:x_samples.shape[1]]
 
 
+    for i in range(len(x_samples)):
+        if h(theta, x_samples[i]) >= 0.5:
+            num_admitted += 1
 
+    perc = (num_admitted * 100) / x_samples.shape[0]
+
+    return perc
 
 
 main()
