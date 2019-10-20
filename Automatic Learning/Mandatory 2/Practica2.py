@@ -7,7 +7,7 @@ from sklearn.preprocessing import PolynomialFeatures
 
 def main():
 
-    """
+    
     #PART 1
 
     data1 = carga_csv("ex2data1.csv")
@@ -29,9 +29,10 @@ def main():
     #get_graph(grades, admissions, opt_theta)  
     pinta_frontera_recta(grades, admissions, opt_theta)
  
-    evaluate_log_reg(opt_theta, grades)
-    """
+    evaluate_log_reg(opt_theta, grades, admissions)
+   
     
+    """
     data2 = carga_csv("ex2data2.csv")
     
     grades = get_grades(data2)
@@ -40,21 +41,24 @@ def main():
     theta = np.zeros(grades.shape[1] + 1) 
     l = 1
 
+    poly = PolynomialFeatures(degree=6)
+    poly.fit_transform(grades)
+
     grades = np.hstack([np.ones([grades.shape[0], 1]), grades])
 
     #get_graph(grades, admissions)
 
-    poly = PolynomialFeatures(degree=6)
-    poly.fit_transform(grades)
+
 
     #_reg_cost = reg_cost(theta, grades, admissions, l)
     #print(_reg_cost)
 
     opt_reg_theta = optimize_reg_params(theta, grades, admissions, l)
     #print(opt_reg_theta)
+    _reg_cost = reg_cost(opt_reg_theta, grades, admissions, l) 
     
     plot_decisionboundary(grades, admissions, opt_reg_theta, poly)
-
+    """
 
 
 
@@ -129,27 +133,24 @@ def pinta_frontera_recta(x_samples, y_samples, theta):
 
 
 def plot_decisionboundary(x_samples, y_samples, theta, poly):
+    
     plt.figure()
+
 
     _x = x_samples[:, 1:x_samples.shape[1]]
 
-    # gets an array with the index of the positive examples
-    pos = np.where(y_samples == 1)
-    # gets an array with the index of the negative examples
-    neg = np.where(y_samples == 0)
+    print(_x)
 
     x1_min, x1_max = _x[:, 0].min(), _x[:, 0].max()
     x2_min, x2_max = _x[:, 1].min(), _x[:, 1].max()
 
-    xx1, xx2 = np.meshgrid(np.linspace(x1_min, x1_max),
-    np.linspace(x2_min, x2_max))
+    xx1, xx2 = np.meshgrid(np.linspace(x1_min, x1_max), np.linspace(x2_min, x2_max))
     
+    #print(np.c_[xx1.ravel(), xx2.ravel()])
+
     h = sigmoid_func(poly.fit_transform(np.c_[xx1.ravel(), xx2.ravel()]).dot(theta))
     
     h = h.reshape(xx1.shape)
-
-    plt.scatter(_x[pos, 0], _x[pos, 1], marker='+', c='red')
-    plt.scatter(_x[neg, 0], _x[neg, 1], c='blue')
     
     plt.contour(xx1, xx2, h, [0.5], linewidths=1, colors='g')
     
@@ -160,7 +161,6 @@ def plot_decisionboundary(x_samples, y_samples, theta, poly):
 
 def sigmoid_func(x):
     return 1 / (1 + np.exp(-x))
-
 
 def h(theta, x):
     return sigmoid_func(theta.T @ x)
@@ -215,17 +215,22 @@ def optimize_reg_params(theta, x_samples, y_samples, l):
     return theta_opt
 
 
-def evaluate_log_reg(theta, x_samples):
+def evaluate_log_reg(theta, x_samples, y_samples):
     num_admitted = 0
-    #_x = x_samples[:, 1:x_samples.shape[1]]
-
+    pos = 0
+    print(x_samples)
+    print(y_samples)
 
     for i in range(len(x_samples)):
         if h(theta, x_samples[i]) >= 0.5:
-            num_admitted += 1
+            num_admitted += 1.0
+        if y_samples[i] == 1:
+            pos += 1.0
 
-    perc = (num_admitted * 100) / x_samples.shape[0]
-
+    print(pos)
+    print(num_admitted)
+    perc = (num_admitted * 100.0) / pos
+    print(perc)
     return perc
 
 
