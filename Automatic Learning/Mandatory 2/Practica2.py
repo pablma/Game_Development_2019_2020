@@ -7,7 +7,7 @@ from sklearn.preprocessing import PolynomialFeatures
 
 def main():
 
-    
+    """
     #PART 1
 
     data1 = carga_csv("ex2data1.csv")
@@ -30,35 +30,31 @@ def main():
     pinta_frontera_recta(grades, admissions, opt_theta)
  
     evaluate_log_reg(opt_theta, grades, admissions)
-   
-    
     """
+    
+  
     data2 = carga_csv("ex2data2.csv")
     
     grades = get_grades(data2)
     admissions = get_admission(data2)
 
-    theta = np.zeros(grades.shape[1] + 1) 
     l = 1
 
     poly = PolynomialFeatures(degree=6)
-    poly.fit_transform(grades)
+    grades_ = poly.fit_transform(grades)
+    
 
-    grades = np.hstack([np.ones([grades.shape[0], 1]), grades])
-
-    #get_graph(grades, admissions)
-
-
+    theta = np.zeros(grades_.shape[1]) 
 
     #_reg_cost = reg_cost(theta, grades, admissions, l)
     #print(_reg_cost)
 
-    opt_reg_theta = optimize_reg_params(theta, grades, admissions, l)
-    #print(opt_reg_theta)
-    _reg_cost = reg_cost(opt_reg_theta, grades, admissions, l) 
+    opt_reg_theta = optimize_reg_params(theta, grades_, admissions, l)
+
+    _reg_cost = reg_cost(opt_reg_theta, grades_, admissions, l) 
     
-    plot_decisionboundary(grades, admissions, opt_reg_theta, poly)
-    """
+    plot_decisionboundary(grades_, admissions, opt_reg_theta, poly)
+    
 
 
 
@@ -99,6 +95,19 @@ def get_graph(grades, admissions):
     #plt.show()
 
 
+def visualize_data(grades, admissions):
+    # gets an array with the index of the positive examples
+    pos = np.where(admissions == 1)
+    # gets an array with the index of the negative examples
+    neg = np.where(admissions == 0)
+
+    plt.scatter(grades[pos, 0], grades[pos, 1], marker='+', c='red')
+    plt.scatter(grades[neg, 0], grades[neg, 1], c='blue')
+
+    plt.show()
+    plt.close()
+
+
 def pinta_frontera_recta(x_samples, y_samples, theta):
  
     plt.figure()
@@ -136,17 +145,12 @@ def plot_decisionboundary(x_samples, y_samples, theta, poly):
     
     plt.figure()
 
-
     _x = x_samples[:, 1:x_samples.shape[1]]
-
-    print(_x)
 
     x1_min, x1_max = _x[:, 0].min(), _x[:, 0].max()
     x2_min, x2_max = _x[:, 1].min(), _x[:, 1].max()
 
     xx1, xx2 = np.meshgrid(np.linspace(x1_min, x1_max), np.linspace(x2_min, x2_max))
-    
-    #print(np.c_[xx1.ravel(), xx2.ravel()])
 
     h = sigmoid_func(poly.fit_transform(np.c_[xx1.ravel(), xx2.ravel()]).dot(theta))
     
@@ -155,12 +159,13 @@ def plot_decisionboundary(x_samples, y_samples, theta, poly):
     plt.contour(xx1, xx2, h, [0.5], linewidths=1, colors='g')
     
     plt.savefig("boundary.pdf")
-    plt.show()
-    plt.close()
+
+    visualize_data(_x, y_samples)
 
 
 def sigmoid_func(x):
     return 1 / (1 + np.exp(-x))
+
 
 def h(theta, x):
     return sigmoid_func(theta.T @ x)
@@ -174,19 +179,11 @@ def cost(theta, x_samples, y_samples):
 
 
 def reg_cost(theta, x_samples, y_samples, l):
+
     _cost = cost(theta, x_samples, y_samples)
-    _sum = summatory(theta, x_samples.shape[1])
-    c = np.dot(l, _sum) / (np.dot(2, x_samples.shape[0]))
+    c = np.dot(l, np.sum((theta)**2) / (np.dot(2, x_samples.shape[0])))
 
     return _cost + c
-
-
-def summatory(theta, n):
-    sum = 0
-    for i in range(n):
-        sum += (theta[i]) ** 2
-
-    return sum
 
 
 def gradient(theta, x_samples, y_samples):
