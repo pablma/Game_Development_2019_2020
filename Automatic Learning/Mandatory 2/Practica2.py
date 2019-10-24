@@ -8,7 +8,7 @@ from sklearn.preprocessing import PolynomialFeatures
 def main():
 
     """
-    #PART 1
+    # PART 1
 
     data1 = carga_csv("ex2data1.csv")
     
@@ -25,14 +25,15 @@ def main():
     opt_theta = optimize_params(theta, grades, admissions)     
     
     _cost = cost(opt_theta, grades, admissions)
-  
-    #get_graph(grades, admissions, opt_theta)  
+   
     pinta_frontera_recta(grades, admissions, opt_theta)
  
-    evaluate_log_reg(opt_theta, grades, admissions)
+    perc = evaluate_log_reg(opt_theta, grades, admissions)
     """
+
     
-  
+    # PART 2
+    
     data2 = carga_csv("ex2data2.csv")
     
     grades = get_grades(data2)
@@ -57,8 +58,6 @@ def main():
     
 
 
-
-
 # Function to load a csv file
 def carga_csv(file_name):
     """ carga el fichero csv especificado y lo devuelve en un array de numpy """
@@ -78,22 +77,6 @@ def get_grades(data):
 def get_admission(data):
     return data[:, -1]
      
-
-def get_graph(grades, admissions):
-
-    gr = grades[:, 1:grades.shape[1]]
-
-    # gets an array with the index of the positive examples
-    pos = np.where(admissions == 1)
-    # gets an array with the index of the negative examples
-    neg = np.where(admissions == 0)
-
-    plt.figure()
-    # Draws the positive and negative examples
-    plt.scatter(gr[pos, 0], gr[pos, 1], marker='+', c='red')
-    plt.scatter(gr[neg, 0], gr[neg, 1], c='blue')
-    #plt.show()
-
 
 def visualize_data(grades, admissions):
     # gets an array with the index of the positive examples
@@ -168,7 +151,7 @@ def sigmoid_func(x):
 
 
 def h(theta, x):
-    return sigmoid_func(theta.T @ x)
+    return sigmoid_func(x @ theta.T)
 
 
 def cost(theta, x_samples, y_samples):
@@ -213,21 +196,14 @@ def optimize_reg_params(theta, x_samples, y_samples, l):
 
 
 def evaluate_log_reg(theta, x_samples, y_samples):
-    num_admitted = 0
-    pos = 0
-    print(x_samples)
-    print(y_samples)
+    
+    hip = (h(theta, x_samples) >= 0.5).astype(float)
+    correct_clasification = (hip == y_samples)
+    
+    # Returns the number of elements that are true in the correct_clasification array
+    clasified = sum(map(lambda x: x == True, correct_clasification))
+    perc = (clasified * 100) / y_samples.shape[0]
 
-    for i in range(len(x_samples)):
-        if h(theta, x_samples[i]) >= 0.5:
-            num_admitted += 1.0
-        if y_samples[i] == 1:
-            pos += 1.0
-
-    print(pos)
-    print(num_admitted)
-    perc = (num_admitted * 100.0) / pos
-    print(perc)
     return perc
 
 
