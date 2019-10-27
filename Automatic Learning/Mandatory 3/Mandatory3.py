@@ -9,8 +9,15 @@ from scipy.io import loadmat
 
 def main():
     X, y = load_file("ex3data1.mat")
-    draw_samples(X, 10)
-    print(y)
+    num_tags = 10
+    reg = 1
+
+    draw_samples(X, num_tags)
+
+    X = np.hstack([np.ones([X.shape[0], 1]), X])    # Adding the ones column
+    theta = np.zeros(X.shape[1])    # Theta array 
+
+    oneVsAll(X, y, num_tags, reg)
     
 
 
@@ -66,20 +73,12 @@ def reg_gradient(theta, x_samples, y_samples, l):
     return grad + (l * theta) / x_samples.shape[0]
 
 
-def oneVsAll(X, y, num_etiquetas, reg):
+def oneVsAll(X, y, num_tags, reg):
     return True
 
 
-
-def optimize_params(theta, x_samples, y_samples):
-    result = opt.fmin_tnc(func=cost, x0=theta, fprime=gradient, args=(x_samples, y_samples))
-    theta_opt = result[0]
-
-    return theta_opt
-
-
-def optimize_reg_params(theta, x_samples, y_samples, l):
-    result = opt.fmin_tnc(func=reg_cost, x0=theta, fprime=reg_gradient, args=(x_samples, y_samples, l))
+def optimize_reg_params(theta, X, y, reg):
+    result = opt.fmin_tnc(func=reg_cost, x0=theta, fprime=reg_gradient, args=(X, y, reg))
     theta_opt = result[0]
 
     return theta_opt
