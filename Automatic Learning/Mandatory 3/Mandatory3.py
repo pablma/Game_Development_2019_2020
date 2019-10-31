@@ -17,7 +17,7 @@ def main():
     X = np.hstack([np.ones([X.shape[0], 1]), X])    # Adding the ones column
     theta = np.zeros(X.shape[1])    # Theta array 
 
-    oneVsAll(X, y, num_tags, reg)
+    oneVsAll(theta, X, y, num_tags, reg)
     
 
 
@@ -30,7 +30,7 @@ def load_file(file_name):
     y = data['y']
     X = data['X']
 
-    return X, y
+    return X, np.ravel(y)
 
 def draw_samples(data, numOfSamples):
     sample = np.random.choice(data.shape[0], numOfSamples)
@@ -63,18 +63,27 @@ def reg_cost(theta, x_samples, y_samples, l):
 
 def gradient(theta, x_samples, y_samples):
     m = x_samples.shape[0]
-    h = sigmoid_func(x_samples @ theta)
+    h = sigmoid_func(np.dot(x_samples, theta))
 
-    return (x_samples.T @ (h - y_samples)) / m
+    result = np.dot(x_samples.T , (h - y_samples)) / m
+    return result
 
 
 def reg_gradient(theta, x_samples, y_samples, l):
     grad = gradient(theta, x_samples, y_samples)
-    return grad + (l * theta) / x_samples.shape[0]
+    return grad + (l / x_samples.shape[0]) * theta
 
 
-def oneVsAll(X, y, num_tags, reg):
-    return True
+def oneVsAll(theta, X, y, num_tags, reg):
+
+    mat = np.zeros((num_tags, theta.shape(0))
+  
+    for i in range(num_tags):
+        y_modified = np.where(y == i, 1, 0)
+        a = optimize_reg_params(theta, X, y_modified, reg)
+        mat[i] = a
+
+    return mat
 
 
 def optimize_reg_params(theta, X, y, reg):
