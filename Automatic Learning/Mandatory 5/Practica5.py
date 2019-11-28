@@ -1,0 +1,109 @@
+import numpy as np
+from pandas.io.parsers import read_csv
+import matplotlib.pyplot as plt
+import scipy.optimize as opt
+import scipy as scp
+from sklearn.preprocessing import PolynomialFeatures
+
+
+def main():
+    data_filename = "ex5data1.mat"
+    X, y, Xtest, ytest, Xval, yval = load_data(data_filename)
+
+    theta = np.zeros(X.shape)
+    l = 1
+
+    result = cost(theta, X, y, l)
+
+    print(result)
+
+
+
+
+
+    
+
+def load_data(file_name):
+    data = scp.io.loadmat(file_name)
+    
+    X = data['X']
+    y = data['y']
+
+    Xtest = data['Xtest']
+    ytest = data['ytest']
+
+    Xval = data['Xval']
+    yval = data['yval']
+
+    return X, y, Xtest, ytest, Xval, yval
+     
+
+def sigmoid_func(x):
+    return 1 / (1 + np.exp(-x))
+
+
+def h(theta, x):
+    return sigmoid_func(np.dot(x, theta.T))
+
+
+def cost(theta, x, y ,l):
+    m = x.shape[0]
+    sum1 = 0
+    sum2 = 0
+ 
+    for i in range(m):
+        sum1 += (h(theta, x[i][0]) - y[i][0])**2
+
+    for j in range(m):
+        sum2 += (theta[j][0])**2
+
+    return (sum1 / (2 * m)) + ((l * (sum2)) / (2 * m))
+   
+
+def reg_cost(theta, x_samples, y_samples, l):
+
+    _cost = cost(theta, x_samples, y_samples)
+    c = np.dot(l, np.sum((theta)**2) / (np.dot(2, x_samples.shape[0])))
+
+    return _cost + c
+
+
+def gradient(theta, x_samples, y_samples):
+    m = x_samples.shape[0]
+    h = sigmoid_func(x_samples @ theta)
+
+    return (x_samples.T @ (h - y_samples)) / m
+
+
+def reg_gradient(theta, x_samples, y_samples, l):
+    grad = gradient(theta, x_samples, y_samples)
+    return grad + (l * theta) / x_samples.shape[0]
+
+
+def optimize_params(theta, x_samples, y_samples):
+    result = opt.fmin_tnc(func=cost, x0=theta, fprime=gradient, args=(x_samples, y_samples))
+    theta_opt = result[0]
+
+    return theta_opt
+
+
+def optimize_reg_params(theta, x_samples, y_samples, l):
+    result = opt.fmin_tnc(func=reg_cost, x0=theta, fprime=reg_gradient, args=(x_samples, y_samples, l))
+    theta_opt = result[0]
+
+    return theta_opt
+
+
+def evaluate_log_reg(theta, x_samples, y_samples):
+    
+    hip = (h(theta, x_samples) >= 0.5).astype(float)
+    correct_clasification = (hip == y_samples)
+    
+    # Returns the number of elements that are true in the correct_clasification array
+    clasified = sum(map(lambda x: x == True, correct_clasification))
+    perc = (clasified * 100) / y_samples.shape[0]
+
+    return perc
+
+
+main()
