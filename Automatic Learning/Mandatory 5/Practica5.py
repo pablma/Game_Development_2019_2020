@@ -10,17 +10,12 @@ def main():
     data_filename = "ex5data1.mat"
     X, y, Xtest, ytest, Xval, yval = load_data(data_filename)
 
-    theta = np.zeros(X.shape)
+    theta = np.ones(X.shape)
     l = 1
 
     result = cost(theta, X, y, l)
 
     print(result)
-
-
-
-
-
     
 
 def load_data(file_name):
@@ -38,12 +33,8 @@ def load_data(file_name):
     return X, y, Xtest, ytest, Xval, yval
      
 
-def sigmoid_func(x):
-    return 1 / (1 + np.exp(-x))
-
-
 def h(theta, x):
-    return sigmoid_func(np.dot(x, theta.T))
+    return np.dot(theta.T, x)
 
 
 def cost(theta, x, y ,l):
@@ -51,15 +42,13 @@ def cost(theta, x, y ,l):
     sum1 = 0
     sum2 = 0
  
-    for i in range(m):
-        sum1 += (h(theta, x[i][0]) - y[i][0])**2
+    sum1 = np.sum((h(theta, x) - y)**2)
 
-    for j in range(m):
-        sum2 += (theta[j][0])**2
+    sum2 = np.sum((theta)**2)
 
     return (sum1 / (2 * m)) + ((l * (sum2)) / (2 * m))
    
-
+"""
 def reg_cost(theta, x_samples, y_samples, l):
 
     _cost = cost(theta, x_samples, y_samples)
@@ -105,5 +94,5 @@ def evaluate_log_reg(theta, x_samples, y_samples):
 
     return perc
 
-
+"""
 main()
