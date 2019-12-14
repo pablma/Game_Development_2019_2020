@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	563932652	Error_Button			\Default Work Unit\Test\Error_Button	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	514714224	Wrong Buzzer - Sound Effect	P:\Universidad\Asignaturas\Cuarto Curso\Sonido\ExtemRatation\Rat Harvest\Rat Harvest_WwiseProject\.cache\Windows\SFX\Wrong Buzzer - Sound Effect_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Test\Wrong Buzzer - Sound Effect		525376
+
