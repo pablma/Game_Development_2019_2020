@@ -12,21 +12,21 @@
 				<File Name="Impact_Dirt" Hash="477371651" Timestamp="1559406065"/>
 				<File Name="Impact_Metal" Hash="1063177495" Timestamp="1559406065"/>
 				<File Name="Impact_Wood" Hash="2126727088" Timestamp="1559406065"/>
-				<File Name="Init" Hash="2647710745" Timestamp="1575050100"/>
+				<File Name="Init" Hash="808416554" Timestamp="1576429190"/>
 				<File Name="Jumps" Hash="4208187421" Timestamp="1558963719"/>
 				<File Name="Landing" Hash="3221066936" Timestamp="1558963719"/>
-				<File Name="MX_CombatLoop01" Hash="4255286744" Timestamp="1576402656"/>
+				<File Name="MX_CombatLoop01" Hash="983829531" Timestamp="1576429190"/>
 				<File Name="MX_CombatLoop02" Hash="2209294913" Timestamp="1558976464"/>
-				<File Name="MX_LooseScreen" Hash="4160353928" Timestamp="1576327988"/>
-				<File Name="MX_MainMenu" Hash="1385098555" Timestamp="1576327988"/>
-				<File Name="MX_Outro" Hash="1863491128" Timestamp="1576327989"/>
-				<File Name="MX_Sting" Hash="3571593230" Timestamp="1576327989"/>
-				<File Name="MX_StopCombat" Hash="3928127344" Timestamp="1576327989"/>
-				<File Name="MX_StopLooseScreen" Hash="3570005026" Timestamp="1576327989"/>
-				<File Name="MX_StopMainMenu" Hash="1517295380" Timestamp="1576327989"/>
-				<File Name="MX_StopWinScreen" Hash="2382476481" Timestamp="1576327989"/>
-				<File Name="MX_WinScreen" Hash="3369748653" Timestamp="1576327989"/>
-				<File Name="MX_WindUp" Hash="2831413021" Timestamp="1576402284"/>
+				<File Name="MX_LooseScreen" Hash="99636488" Timestamp="1576427696"/>
+				<File Name="MX_MainMenu" Hash="1709204242" Timestamp="1576427696"/>
+				<File Name="MX_Outro" Hash="531486385" Timestamp="1576427696"/>
+				<File Name="MX_Sting" Hash="3780233054" Timestamp="1576427696"/>
+				<File Name="MX_StopCombat" Hash="3928127344" Timestamp="1576427696"/>
+				<File Name="MX_StopLooseScreen" Hash="3570005026" Timestamp="1576427696"/>
+				<File Name="MX_StopMainMenu" Hash="1517295380" Timestamp="1576427696"/>
+				<File Name="MX_StopWinScreen" Hash="2382476481" Timestamp="1576427696"/>
+				<File Name="MX_WinScreen" Hash="1906268154" Timestamp="1576427696"/>
+				<File Name="MX_WindUp" Hash="1052638940" Timestamp="1576427696"/>
 				<File Name="PauseAll" Hash="851450336" Timestamp="1559867422"/>
 				<File Name="Player_Footsteps" Hash="3310718906" Timestamp="1559865272"/>
 				<File Name="Player_Jumps" Hash="3503244528" Timestamp="1559865272"/>
@@ -47,7 +47,7 @@
 		</Banks>
 		<XMLInfo>
 			<Language ID="-1">
-				<File Name="" Hash="632368329" Timestamp="1576402656"/>
+				<File Name="" Hash="2230186055" Timestamp="1576429190"/>
 			</Language>
 		</XMLInfo>
 	</Platform>
@@ -63,21 +63,21 @@
 				<File Name="Impact_Dirt" Hash="477371651" Timestamp="1559406065"/>
 				<File Name="Impact_Metal" Hash="1063177495" Timestamp="1559406065"/>
 				<File Name="Impact_Wood" Hash="2126727088" Timestamp="1559406065"/>
-				<File Name="Init" Hash="399428863" Timestamp="1575050241"/>
+				<File Name="Init" Hash="960333188" Timestamp="1576429190"/>
 				<File Name="Jumps" Hash="4208187421" Timestamp="1558963718"/>
 				<File Name="Landing" Hash="3221066936" Timestamp="1558963718"/>
-				<File Name="MX_CombatLoop01" Hash="4255286744" Timestamp="1576402655"/>
+				<File Name="MX_CombatLoop01" Hash="983829531" Timestamp="1576429190"/>
 				<File Name="MX_CombatLoop02" Hash="2209294913" Timestamp="1558976463"/>
-				<File Name="MX_LooseScreen" Hash="4160353928" Timestamp="1576327987"/>
-				<File Name="MX_MainMenu" Hash="1385098555" Timestamp="1576327987"/>
-				<File Name="MX_Outro" Hash="1863491128" Timestamp="1576327987"/>
-				<File Name="MX_Sting" Hash="3571593230" Timestamp="1576327987"/>
-				<File Name="MX_StopCombat" Hash="3928127344" Timestamp="1576327987"/>
-				<File Name="MX_StopLooseScreen" Hash="3570005026" Timestamp="1576327987"/>
-				<File Name="MX_StopMainMenu" Hash="1517295380" Timestamp="1576327987"/>
-				<File Name="MX_StopWinScreen" Hash="2382476481" Timestamp="1576327987"/>
-				<File Name="MX_WinScreen" Hash="3369748653" Timestamp="1576327987"/>
-				<File Name="MX_WindUp" Hash="2831413021" Timestamp="1576402284"/>
+				<File Name="MX_LooseScreen" Hash="99636488" Timestamp="1576427694"/>
+				<File Name="MX_MainMenu" Hash="1709204242" Timestamp="1576427694"/>
+				<File Name="MX_Outro" Hash="531486385" Timestamp="1576427694"/>
+				<File Name="MX_Sting" Hash="3780233054" Timestamp="1576427694"/>
+				<File Name="MX_StopCombat" Hash="3928127344" Timestamp="1576427694"/>
+				<File Name="MX_StopLooseScreen" Hash="3570005026" Timestamp="1576427694"/>
+				<File Name="MX_StopMainMenu" Hash="1517295380" Timestamp="1576427694"/>
+				<File Name="MX_StopWinScreen" Hash="2382476481" Timestamp="1576427694"/>
+				<File Name="MX_WinScreen" Hash="1906268154" Timestamp="1576427694"/>
+				<File Name="MX_WindUp" Hash="1052638940" Timestamp="1576427694"/>
 				<File Name="PauseAll" Hash="851450336" Timestamp="1559867422"/>
 				<File Name="Player_Footsteps" Hash="3310718906" Timestamp="1559865272"/>
 				<File Name="Player_Jumps" Hash="3503244528" Timestamp="1559865272"/>
@@ -98,7 +98,7 @@
 		</Banks>
 		<XMLInfo>
 			<Language ID="-1">
-				<File Name="" Hash="508559323" Timestamp="1576402655"/>
+				<File Name="" Hash="3455554477" Timestamp="1576429190"/>
 			</Language>
 		</XMLInfo>
 	</Platform>

@@ -2,5 +2,5 @@ Event	ID	Name			Wwise Object Path	Notes
 	312234509	MX_LooseScreen			\Default Work Unit\MX\MX_LooseScreen	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	155487320	MX_LooseScreen	P:\Universidad\Asignaturas\Cuarto Curso\Game_Development_2019_2020\Sound_For_Videogames\Final Project\Rat Harvest\Rat Harvest_WwiseProject\.cache\Mac\SFX\MX_LooseScreen_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\MX\MX_LooseScreen		14990424
+	155487320	MX_LooseScreen	C:\Users\Pablo\Documents\Universidad\Cuarto Curso\Game_Development_2019_2020\Sound_For_Videogames\Final Project\Rat Harvest\Rat Harvest_WwiseProject\.cache\Mac\SFX\MX_LooseScreen_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\MX\MX_LooseScreen		14990424
 

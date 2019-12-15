@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="11" SoundbankVersion="134">
 	<RootPaths>
-		<ProjectRoot>P:\Universidad\Asignaturas\Cuarto Curso\Game_Development_2019_2020\Sound_For_Videogames\Final Project\Rat Harvest\Rat Harvest_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>P:\Universidad\Asignaturas\Cuarto Curso\Game_Development_2019_2020\Sound_For_Videogames\Final Project\Rat Harvest\Rat Harvest_WwiseProject\.cache\Mac\</SourceFilesRoot>
-		<SoundBanksRoot>P:\Universidad\Asignaturas\Cuarto Curso\Game_Development_2019_2020\Sound_For_Videogames\Final Project\Rat Harvest\Rat Harvest_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
+		<ProjectRoot>C:\Users\Pablo\Documents\Universidad\Cuarto Curso\Game_Development_2019_2020\Sound_For_Videogames\Final Project\Rat Harvest\Rat Harvest_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\Pablo\Documents\Universidad\Cuarto Curso\Game_Development_2019_2020\Sound_For_Videogames\Final Project\Rat Harvest\Rat Harvest_WwiseProject\.cache\Mac\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\Pablo\Documents\Universidad\Cuarto Curso\Game_Development_2019_2020\Sound_For_Videogames\Final Project\Rat Harvest\Rat Harvest_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>P:\Universidad\Asignaturas\Cuarto Curso\Game_Development_2019_2020\Sound_For_Videogames\Final Project\Rat Harvest\Rat Harvest_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>C:\Users\Pablo\Documents\Universidad\Cuarto Curso\Game_Development_2019_2020\Sound_For_Videogames\Final Project\Rat Harvest\Rat Harvest_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>

@@ -48,6 +48,12 @@ namespace AK
         static const AkUniqueID UI_SWITCH = 441552802U;
     } // namespace EVENTS
 
+    namespace GAME_PARAMETERS
+    {
+        static const AkUniqueID RTPC_OCCLUSION_LOPASS = 222722569U;
+        static const AkUniqueID RTPC_OCCLUSION_VOLUME = 342905355U;
+    } // namespace GAME_PARAMETERS
+
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;

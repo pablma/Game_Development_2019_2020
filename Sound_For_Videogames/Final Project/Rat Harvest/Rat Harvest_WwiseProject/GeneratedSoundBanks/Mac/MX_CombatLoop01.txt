@@ -1,6 +1,10 @@
 Event	ID	Name			Wwise Object Path	Notes
 	3400939748	MX_CombatLoop03			\Default Work Unit\MX\MX_CombatLoop03	
 
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	222722569	RTPC_Occlusion_LoPass			\Default Work Unit\RTPC_Occlusion_LoPass	
+	342905355	RTPC_Occlusion_Volume			\Default Work Unit\RTPC_Occlusion_Volume	
+
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	860826220	MX_Combat_Loop03	P:\Universidad\Asignaturas\Cuarto Curso\Game_Development_2019_2020\Sound_For_Videogames\Final Project\Rat Harvest\Rat Harvest_WwiseProject\.cache\Mac\SFX\MX_Combat_Loop03_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\MX\MX_Combat_Loop03		19272556
+	860826220	MX_Combat_Loop03	C:\Users\Pablo\Documents\Universidad\Cuarto Curso\Game_Development_2019_2020\Sound_For_Videogames\Final Project\Rat Harvest\Rat Harvest_WwiseProject\.cache\Mac\SFX\MX_Combat_Loop03_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\MX\MX_Combat_Loop03		19272556
 
