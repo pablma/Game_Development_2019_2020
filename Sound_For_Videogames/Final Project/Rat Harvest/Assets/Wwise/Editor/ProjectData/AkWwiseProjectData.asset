@@ -564,7 +564,7 @@ MonoBehaviour:
       - ElementName: MX_CombatLoop03
         ObjectType: 3
       Path: Default Work Unit\MX\MX_CombatLoop03
-      maxAttenuation: 50000000
+      maxAttenuation: 65000000
       maxDuration: -1
       minDuration: -1
     - name: MX_CombatStop
@@ -690,7 +690,7 @@ MonoBehaviour:
       - ElementName: MX_Windup01
         ObjectType: 3
       Path: Default Work Unit\MX\MX_Windup01
-      maxAttenuation: 50000000
+      maxAttenuation: 65000000
       maxDuration: 15754172
       minDuration: 15754172
     - name: MX_WinScreen
@@ -876,7 +876,7 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: a745c145bc032b4283043be00d570d09
     GuidInternal: 
-    m_lastTime: -8586251223918800278
+    m_lastTime: -8586251195842111399
     List:
     - name: RTPC_Occlusion_LoPass
       guid: 8f2ec764378af64ea85f9a8b1ea38f1e

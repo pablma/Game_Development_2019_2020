@@ -130,7 +130,7 @@
 			<ShortName>MX_WindUp</ShortName>
 			<Path>MX_WindUp.bnk</Path>
 			<IncludedEvents>
-				<Event Id="2107270325" Name="MX_Windup01" ObjectPath="\Events\Default Work Unit\MX\MX_Windup01" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="15.754172" DurationMax="15.754172"/>
+				<Event Id="2107270325" Name="MX_Windup01" ObjectPath="\Events\Default Work Unit\MX\MX_Windup01" MaxAttenuation="65.000000" DurationType="OneShot" DurationMin="15.754172" DurationMax="15.754172"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
 				<File Id="800445981" Language="SFX">
@@ -397,7 +397,7 @@
 			<ShortName>MX_CombatLoop01</ShortName>
 			<Path>MX_CombatLoop01.bnk</Path>
 			<IncludedEvents>
-				<Event Id="3400939748" Name="MX_CombatLoop03" ObjectPath="\Events\Default Work Unit\MX\MX_CombatLoop03" MaxAttenuation="50.000000" DurationType="Infinite"/>
+				<Event Id="3400939748" Name="MX_CombatLoop03" ObjectPath="\Events\Default Work Unit\MX\MX_CombatLoop03" MaxAttenuation="65.000000" DurationType="Infinite"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
 				<File Id="860826220" Language="SFX">

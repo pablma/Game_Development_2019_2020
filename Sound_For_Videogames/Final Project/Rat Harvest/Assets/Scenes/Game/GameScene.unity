@@ -6084,41 +6084,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1902675653}
   m_PrefabAsset: {fileID: 0}
---- !u!84 &202734934
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  serializedVersion: 3
-  m_Width: 920
-  m_Height: 423
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 1
-  m_ColorFormat: 4
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 1
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &204861350
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8092,7 +8057,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioListener: {fileID: 48631482}
-  sound_emitter: {fileID: 442227785}
 --- !u!114 &291228871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8283,41 +8247,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1191646655}
   m_PrefabAsset: {fileID: 0}
---- !u!84 &299122412
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  serializedVersion: 3
-  m_Width: 920
-  m_Height: 423
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 1
-  m_ColorFormat: 4
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 1
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!4 &299883216 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6159834937425851736, guid: b412e0d2f722fd24e896999ce8e2078a,
@@ -16487,17 +16416,17 @@ PrefabInstance:
     - target: {fileID: 853572018685015066, guid: 2efdcb1959fcd1a4d9144de4ff74dda2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.257
+      value: -11.306
       objectReference: {fileID: 0}
     - target: {fileID: 853572018685015066, guid: 2efdcb1959fcd1a4d9144de4ff74dda2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.26
+      value: 1.16
       objectReference: {fileID: 0}
     - target: {fileID: 853572018685015066, guid: 2efdcb1959fcd1a4d9144de4ff74dda2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.096
+      value: 3.216
       objectReference: {fileID: 0}
     - target: {fileID: 853572018685015066, guid: 2efdcb1959fcd1a4d9144de4ff74dda2,
         type: 3}
@@ -16539,6 +16468,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2553292242991638647, guid: 2efdcb1959fcd1a4d9144de4ff74dda2,
+        type: 3}
+      propertyPath: audioListener
+      value: 
+      objectReference: {fileID: 48631482}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2efdcb1959fcd1a4d9144de4ff74dda2, type: 3}
 --- !u!4 &667966193 stripped
@@ -30737,6 +30671,41 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 300135659}
   m_PrefabAsset: {fileID: 0}
+--- !u!84 &1335988702
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 3
+  m_Width: 920
+  m_Height: 423
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 1
+  m_ColorFormat: 4
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 1
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &1336561449
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33188,7 +33157,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioListener: {fileID: 48631482}
-  sound_emitter: {fileID: 1421719994}
 --- !u!1001 &1421841370
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33690,8 +33658,8 @@ MonoBehaviour:
   sourceCamera: {fileID: 1433466552}
   outlineCamera: {fileID: 2142086985}
   outlineShaderMaterial: {fileID: 0}
-  renderTexture: {fileID: 299122412}
-  extraRenderTexture: {fileID: 202734934}
+  renderTexture: {fileID: 1335988702}
+  extraRenderTexture: {fileID: 1791360543}
 --- !u!124 &1433466551
 Behaviour:
   m_ObjectHideFlags: 0
@@ -41547,6 +41515,41 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 7144fbca4a59ff54db44a4a2854a2f61, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51b0ba278be0178489a49fb048fe3f67, type: 3}
+--- !u!84 &1791360543
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 3
+  m_Width: 920
+  m_Height: 423
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 1
+  m_ColorFormat: 4
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 1
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!4 &1791470874 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2125356391546707383, guid: cac9b1c00bd1c0546ab65d8a1ca362de,
@@ -50689,7 +50692,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 0
   m_RenderingPath: 1
-  m_TargetTexture: {fileID: 299122412}
+  m_TargetTexture: {fileID: 1335988702}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
