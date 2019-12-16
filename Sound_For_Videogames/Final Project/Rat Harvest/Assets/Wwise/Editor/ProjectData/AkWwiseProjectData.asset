@@ -17,21 +17,21 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 0947a706b8f1c349b920ce2deda2851e
     GuidInternal: 
-    m_lastTime: -8586265716797766918
+    m_lastTime: -8586251797705241134
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: c3043a09235d414d86d9062d4bd63631
     GuidInternal: 
-    m_lastTime: -8586265716973970467
+    m_lastTime: -8586251797741579817
     List: []
   BankWwu:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 1793e46ca69fdb42ab8b461509de6e1c
     GuidInternal: 
-    m_lastTime: -8586252789145426924
+    m_lastTime: -8586251797705285764
     List:
     - name: HUD_AmmoBox
       guid: 5798a7836937344fa9413adb63464f76
@@ -397,7 +397,7 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: b4609ff119cd234494087f9db71a18c3
     GuidInternal: 
-    m_lastTime: -8586252789145312548
+    m_lastTime: -8586251797781112243
     List:
     - name: Error_Button
       guid: 0b1a92a3e047ac4995e78009e2a3a64c
@@ -564,7 +564,7 @@ MonoBehaviour:
       - ElementName: MX_CombatLoop03
         ObjectType: 3
       Path: Default Work Unit\MX\MX_CombatLoop03
-      maxAttenuation: 0
+      maxAttenuation: 50000000
       maxDuration: -1
       minDuration: -1
     - name: MX_CombatStop
@@ -690,7 +690,7 @@ MonoBehaviour:
       - ElementName: MX_Windup01
         ObjectType: 3
       Path: Default Work Unit\MX\MX_Windup01
-      maxAttenuation: 0
+      maxAttenuation: 50000000
       maxDuration: 15754172
       minDuration: 15754172
     - name: MX_WinScreen
@@ -876,31 +876,52 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: a745c145bc032b4283043be00d570d09
     GuidInternal: 
-    m_lastTime: -8586265717021650412
-    List: []
+    m_lastTime: -8586251223918800278
+    List:
+    - name: RTPC_Occlusion_LoPass
+      guid: 8f2ec764378af64ea85f9a8b1ea38f1e
+      id: 222722569
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: RTPC_Occlusion_LoPass
+        ObjectType: 13
+      Path: Default Work Unit\RTPC_Occlusion_LoPass
+    - name: RTPC_Occlusion_Volume
+      guid: 17fed77ae1ee6e4d9f34e792c28f71d9
+      id: 342905355
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: RTPC_Occlusion_Volume
+        ObjectType: 13
+      Path: Default Work Unit\RTPC_Occlusion_Volume
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 2913b0175050824aa9859ecf9c29f1d2
     GuidInternal: 
-    m_lastTime: -8586265716797786824
+    m_lastTime: -8586251797705265938
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 237e698212b1734a9c3d4c03a87aecdc
     GuidInternal: 
-    m_lastTime: -8586265716797776886
+    m_lastTime: -8586251797705256019
     List: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 22068e014fdbd34eafc200da01db3f97
     GuidInternal: 
-    m_lastTime: -8586265716797776886
+    m_lastTime: -8586251797705247391
     List: []
   ExpandedItems:
   - /Rat Harvest_WwiseProject
+  - /Rat Harvest_WwiseProject/Events
+  - /Rat Harvest_WwiseProject/Events/Default Work Unit
+  - /Rat Harvest_WwiseProject/Events/Default Work Unit/MX
   - /Rat Harvest_WwiseProject/SoundBanks
   - /Rat Harvest_WwiseProject/SoundBanks/Default Work Unit
   - /Rat Harvest_WwiseProject/SoundBanks/Default Work Unit/MX

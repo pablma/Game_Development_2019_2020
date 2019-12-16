@@ -39,15 +39,16 @@ public class Timer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         timeText.text = "00:00"/* "Round Starts In:"*/;
 
         time = startRoundTime + 1;
 
         fstartRoundTime = time;
 
-        PreRoundEvents();
+        //PreRoundEvents();
 
-        RoundEvents();
+        //RoundEvents();
     }
 
     string MinsAndSecondsConverter(float timeToChange)
@@ -126,12 +127,12 @@ public class Timer : MonoBehaviour
 
     void MX_CombatEnd()
     {
-        AkSoundEngine.PostEvent("MX_CombatStop", gameObject);
+        AkSoundEngine.PostEvent("MX_CombatStop", sound_emitter);
     }
 
     void MX_Outro()
     {
-        AkSoundEngine.PostEvent("MX_Outro", gameObject);
+        AkSoundEngine.PostEvent("MX_Outro", sound_emitter);
     }
 
     void HUD_ClockOut()

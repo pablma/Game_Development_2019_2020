@@ -1365,8 +1365,8 @@
 														<Flags>5</Flags>
 													</Point>
 													<Point>
-														<XPos>1</XPos>
-														<YPos>66</YPos>
+														<XPos>50</XPos>
+														<YPos>62</YPos>
 														<Flags>37</Flags>
 													</Point>
 												</PointList>
@@ -1378,32 +1378,6 @@
 									<ValueList>
 										<Value>-10</Value>
 									</ValueList>
-									<RTPCList>
-										<RTPC Name="" ID="{44464DDE-3371-47F3-8395-0AF22AC4C628}" ShortID="901511865">
-											<ReferenceList>
-												<Reference Name="ControlInput">
-													<ObjectRef Name="RTPC_Occlusion_Volume" ID="{7AD7FE17-EEE1-4D6E-9F34-E792C28F71D9}" WorkUnitID="{45C145A7-03BC-422B-8304-3BE00D570D09}"/>
-												</Reference>
-											</ReferenceList>
-											<Curve Name="" ID="{56FC1123-4335-4D72-86AB-7E9D75B05DED}">
-												<PropertyList>
-													<Property Name="Flags" Type="int32" Value="3"/>
-												</PropertyList>
-												<PointList>
-													<Point>
-														<XPos>0</XPos>
-														<YPos>0.115</YPos>
-														<Flags>5</Flags>
-													</Point>
-													<Point>
-														<XPos>1</XPos>
-														<YPos>-10.5009</YPos>
-														<Flags>37</Flags>
-													</Point>
-												</PointList>
-											</Curve>
-										</RTPC>
-									</RTPCList>
 								</Property>
 							</PropertyList>
 							<ReferenceList>

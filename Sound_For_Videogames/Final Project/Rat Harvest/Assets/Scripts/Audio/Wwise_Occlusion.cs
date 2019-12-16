@@ -20,7 +20,7 @@ public class Wwise_Occlusion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 dir = audioListener.transform.position - this.transform.position;
+        Vector3 dir = audioListener.transform.position - sound_emitter.transform.position;
         RaycastHit hitInfo;
         bool hit = Physics.Raycast(sound_emitter.transform.position, dir, out hitInfo);
 
@@ -28,12 +28,12 @@ public class Wwise_Occlusion : MonoBehaviour
             if (hitInfo.collider.gameObject.name != nameOfListener)
             {
                 Debug.Log("Doing occlusion");
-                AkSoundEngine.SetRTPCValue(RTPC_LoPass, 1, sound_emitter);
-                AkSoundEngine.SetRTPCValue(RTPC_Volume, 1, sound_emitter);
+                AkSoundEngine.SetRTPCValue(RTPC_LoPass, 50, sound_emitter);
+                //AkSoundEngine.SetRTPCValue(RTPC_Volume, 1, sound_emitter);
             }
             else {
                 AkSoundEngine.SetRTPCValue(RTPC_LoPass, 0, sound_emitter);
-                AkSoundEngine.SetRTPCValue(RTPC_LoPass, 0, sound_emitter);
+                //AkSoundEngine.SetRTPCValue(RTPC_Volume, 0, sound_emitter);
             }
         }
     }
