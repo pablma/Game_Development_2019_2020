@@ -1,0 +1,9 @@
+﻿  FmodSound.cpp
+..\src\FmodSound.cpp(8): warning C4101: 'sound': variable local sin referencia
+  Main.cpp
+  Generando código
+  13 of 14 functions (92.9%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Generación de código finalizada
+  FMOD_Project.vcxproj -> P:\Universidad\Asignaturas\Cuarto Curso\Game_Development_2019_2020\Sound_For_Videogames\FMOD_Project\bin\FMOD_Project.exe
