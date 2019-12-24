@@ -71,18 +71,22 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>P:\Universidad\Asignaturas\Cuarto Curso\Game_Development_2019_2020\Sound_For_Videogames\FMOD_Project\inc;$(IncludePath)</IncludePath>
     <LibraryPath>P:\Universidad\Asignaturas\Cuarto Curso\Game_Development_2019_2020\Sound_For_Videogames\FMOD_Project\lib;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)bin\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>P:\Universidad\Asignaturas\Cuarto Curso\Game_Development_2019_2020\Sound_For_Videogames\FMOD_Project\inc;$(IncludePath)</IncludePath>
     <LibraryPath>P:\Universidad\Asignaturas\Cuarto Curso\Game_Development_2019_2020\Sound_For_Videogames\FMOD_Project\lib;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)bin\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>P:\Universidad\Asignaturas\Cuarto Curso\Game_Development_2019_2020\Sound_For_Videogames\FMOD_Project\inc;$(IncludePath)</IncludePath>
     <LibraryPath>P:\Universidad\Asignaturas\Cuarto Curso\Game_Development_2019_2020\Sound_For_Videogames\FMOD_Project\lib;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)bin\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>P:\Universidad\Asignaturas\Cuarto Curso\Game_Development_2019_2020\Sound_For_Videogames\FMOD_Project\inc;$(IncludePath)</IncludePath>
     <LibraryPath>P:\Universidad\Asignaturas\Cuarto Curso\Game_Development_2019_2020\Sound_For_Videogames\FMOD_Project\lib;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)bin\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -133,7 +137,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="..\src\Main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

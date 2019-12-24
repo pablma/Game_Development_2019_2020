@@ -18,6 +18,9 @@ int main()
 
 	std::cout << "Everything was correctly initialised";
 
+	int n;
+	std::cin >> n;
+
 	return 1;
 }
 
