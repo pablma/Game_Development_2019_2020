@@ -1,3 +1,6 @@
-﻿  Main.cpp
+﻿  FmodSound.cpp
+p:\universidad\asignaturas\cuarto curso\game_development_2019_2020\sound_for_videogames\fmod_project\fmod_project\fmodsound.cpp(8): warning C4101: 'sound': variable local sin referencia
+  Main.cpp
+  Generando código...
   FMOD_Project.vcxproj -> P:\Universidad\Asignaturas\Cuarto Curso\Game_Development_2019_2020\Sound_For_Videogames\FMOD_Project\bin\FMOD_Project.exe
   FMOD_Project.vcxproj -> P:\Universidad\Asignaturas\Cuarto Curso\Game_Development_2019_2020\Sound_For_Videogames\FMOD_Project\bin\FMOD_Project.pdb (Partial PDB)

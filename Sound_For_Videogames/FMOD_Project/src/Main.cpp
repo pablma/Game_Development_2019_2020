@@ -8,6 +8,7 @@ void ERRCHECK(FMOD_RESULT result);
 
 int main()
 {
+	// INITIALIZE FMOD
 	FMOD::System* system;
 	FMOD_RESULT result;
 	result = FMOD::System_Create(&system);	// Creamos objeto system
@@ -16,8 +17,15 @@ int main()
 	result = system->init(128, FMOD_INIT_NORMAL, 0);	// Inicializamos FMOD
 	ERRCHECK(result);
 
-	std::cout << "Everything was correctly initialised";
+	// LOAD SOUND
+	FMOD::Sound* sound;
+	char* soundPath = "../res/piano.ogg";
+	result = system->createSound(soundPath, FMOD_DEFAULT, 0, &sound);
 
+	// PLAY SOUND
+	FMOD::Channel* channel;
+	result = system->playSound(sound, 0, false, &channel);
+	
 	int n;
 	std::cin >> n;
 
