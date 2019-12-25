@@ -48,4 +48,6 @@ void FmodSound::FadeIn(float miliSeconds)
 
 void FmodSound::FadeOut(float miliSeconds)
 {
+	for (float i = 0.0f; i < miliSeconds; i += 0.1f)
+		_channel->setVolume(-i);
 }

@@ -1,12 +1,14 @@
 #include <fmod.hpp>			// para utilizar el wrapper de C++
 #include <fmod_errors.h>	// para manejo de errores
 #include <iostream>
+#include <conio.h>
 
 #include "FmodSound.h"
+#include "Piano.h"
 
 
-void ERRCHECK(FMOD_RESULT result);
 void init(FMOD::System* system, FMOD_RESULT result);
+void ERRCHECK(FMOD_RESULT result);
 
 
 int main()
@@ -21,15 +23,30 @@ int main()
 	result = system->init(128, FMOD_INIT_NORMAL, 0);	// Inicializamos FMOD
 	ERRCHECK(result);
 
-	FmodSound pianoSound = FmodSound("piano", system);
-	pianoSound.Play();
+	/*FmodSound pianoSound = FmodSound("piano", system);
 	
-	char c;
-	std::cin >> c;
+	while (true)
+	{
+		int c = _getch();
+		
+		if (c == 'p')
+			pianoSound.Play();
+		else if (c == 's')
+			pianoSound.Stop();
+		else if (c == 'e')
+			pianoSound.Pause();
+		else if (c == 'r')
+			pianoSound.Resume();
+	}*/
 
-	std::cin >> c;
+	Piano piano = Piano(system);
 
-	return 1;
+	while (true)
+	{
+		piano.update();
+	}
+
+	return 0;
 }
 
 

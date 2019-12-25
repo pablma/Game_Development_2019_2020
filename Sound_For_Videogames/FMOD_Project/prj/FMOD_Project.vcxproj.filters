@@ -21,9 +21,15 @@
     <ClCompile Include="..\src\FmodSound.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Piano.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\FmodSound.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Piano.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
