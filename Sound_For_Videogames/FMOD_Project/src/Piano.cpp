@@ -38,8 +38,19 @@ void Piano::update()
 			_channel->setPitch(powf(2, 11) / 12);
 		else if (c == ',')
 			_channel->setPitch(powf(2, 12) / 12);
+		else if (c == 's')
+			_channel->setPitch(powf(2, 1) / 12);
+		else if (c == 'd')
+			_channel->setPitch(powf(2, 3) / 12);
+		else if (c == 'g')
+			_channel->setPitch(powf(2, 6) / 12);
+		else if (c == 'h')
+			_channel->setPitch(powf(2, 8) / 12);
+		else if (c == 'j')
+			_channel->setPitch(powf(2, 10) / 12);
 
 	}
-	
+
+	_system->update();
 }
 
