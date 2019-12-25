@@ -53,4 +53,3 @@ void Piano::update()
 
 	_system->update();
 }
-
