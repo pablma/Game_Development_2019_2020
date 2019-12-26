@@ -14,6 +14,7 @@ private:
 	FMOD::Channel* _channel;
 	
 	char* _soundPath;
+	float _volume;
 public:
 	FmodSound(char* filename, FMOD::System* system);
 	~FmodSound();

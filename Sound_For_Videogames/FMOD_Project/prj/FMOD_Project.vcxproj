@@ -137,12 +137,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\Board.cpp" />
     <ClCompile Include="..\src\FmodSound.cpp" />
     <ClCompile Include="..\src\FmodSystem.cpp" />
     <ClCompile Include="..\src\Main.cpp" />
     <ClCompile Include="..\src\Piano.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\src\Board.h" />
     <ClInclude Include="..\src\FmodSound.h" />
     <ClInclude Include="..\src\FmodSystem.h" />
     <ClInclude Include="..\src\Piano.h" />

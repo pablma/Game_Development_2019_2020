@@ -20,6 +20,7 @@ void Piano::update()
 
 	if (c != NULL)
 	{
+		
 		_result = _system->playSound(_pianoSound, 0, false, &_channel);
 
 		if (c == 'z')
