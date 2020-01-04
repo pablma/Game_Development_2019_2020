@@ -137,6 +137,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\AudioListener.cpp" />
+    <ClCompile Include="..\src\AudioSource.cpp" />
     <ClCompile Include="..\src\Board.cpp" />
     <ClCompile Include="..\src\FmodSound.cpp" />
     <ClCompile Include="..\src\FmodSystem.cpp" />
@@ -144,6 +146,8 @@
     <ClCompile Include="..\src\Piano.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\src\AudioListener.h" />
+    <ClInclude Include="..\src\AudioSource.h" />
     <ClInclude Include="..\src\Board.h" />
     <ClInclude Include="..\src\FmodSound.h" />
     <ClInclude Include="..\src\FmodSystem.h" />

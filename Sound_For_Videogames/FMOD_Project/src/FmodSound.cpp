@@ -4,7 +4,7 @@
 FmodSound::FmodSound(char* filename, FMOD::System* system)
 {
 	_system = system;
-	_result = _system->createSound("../res/piano.ogg", FMOD_DEFAULT, 0, &_sound);
+	_result = _system->createSound("../res/Robert Miles - Children.ogg", FMOD_3D | FMOD_LOOP_NORMAL, 0, &_sound);
 	_volume = 1.0f;
 }
 
@@ -20,6 +20,7 @@ void FmodSound::Play()
 	
 	if(playing)
 		_channel->stop();
+
 	
 	_result = _system->playSound(_sound, 0, false, &_channel);
 }

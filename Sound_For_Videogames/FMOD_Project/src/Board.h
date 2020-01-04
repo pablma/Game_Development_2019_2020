@@ -14,12 +14,16 @@ private:
 
 	void ReadFromTextFile(std::string filename);
 	void CreateBoard(int rows, int cols);
+
+	int _listenerPos[2];
+	int _sourcePos[2];
 public:
 	Board();
 	~Board();
 
 	void render();
 	void clear();
+	void Input(char c);
 };
 
 #endif

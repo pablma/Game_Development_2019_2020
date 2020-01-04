@@ -22,9 +22,17 @@ void Board::render()
 			if (_board[i][j] == ' ')
 				std::cout << ' ';
 			else if (_board[i][j] == 'L')
+			{
 				std::cout << 'L';
+				_listenerPos[0] = i;
+				_listenerPos[1] = j;
+			}				
 			else if (_board[i][j] == 'S')
+			{
 				std::cout << 'S';
+				_sourcePos[0] = i;
+				_sourcePos[1] = j;
+			}
 			else if (_board[i][j] == '1')
 				std::cout << '1';
 			else if (_board[i][j] == '2')
@@ -42,6 +50,35 @@ void Board::render()
 void Board::clear()
 {
 	system("CLS");
+}
+
+void Board::Input(char c)
+{
+	_board[_listenerPos[0]][_listenerPos[1]] = '.';
+	_board[_sourcePos[0]][_sourcePos[1]] = '.';
+
+	if (c == 'a')
+		_listenerPos[1] = _listenerPos[1] - 2;
+	else if (c == 'd')
+		_listenerPos[1] = _listenerPos[1] + 2;
+	else if (c == 'w')
+		_listenerPos[0] = _listenerPos[0] - 1;
+	else if (c == 's')
+		_listenerPos[0] = _listenerPos[0] + 1;
+	else if (c == 'j')
+		_sourcePos[1] = _sourcePos[1] - 2;
+	else if (c == 'l')
+		_sourcePos[1] = _sourcePos[1] + 2;
+	else if (c == 'i')
+		_sourcePos[0] = _sourcePos[0] - 1;
+	else if (c == 'k')
+		_sourcePos[0] = _sourcePos[0] + 1;
+
+	_board[_listenerPos[0]][_listenerPos[1]] = 'L';
+	_board[_sourcePos[0]][_sourcePos[1]] = 'S';
+
+	clear();
+	render();
 }
 
 

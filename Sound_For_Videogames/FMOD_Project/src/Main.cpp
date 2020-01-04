@@ -4,6 +4,8 @@
 #include "FmodSound.h"
 #include "Piano.h"
 #include "Board.h"
+#include "AudioListener.h"
+#include "AudioSource.h"
 
 
 int main()
@@ -29,11 +31,18 @@ int main()
 	//}
 
 	Board board = Board();
+	board.render();
+
+	AudioSource _source = AudioSource("../res/Robert Miles - Children.ogg", FmodSystem::getFmodSystem(), { 1, 0, 0 }, { 0, 0, 0 });
+	_source.Play();
+	
+
+	AudioListener _listener = AudioListener(FmodSystem::getFmodSystem(), { 100, 0, 0 }, { 0, 0, 0 }, {0, 1, 0}, {1, 0, 0});
+
 
 	while (true)
-	{
-		board.clear();
-		board.render();
+	{		
+		board.Input(_getch());
 	}
 
 
