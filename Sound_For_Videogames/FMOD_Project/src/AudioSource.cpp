@@ -13,6 +13,9 @@ AudioSource::AudioSource(std::string filename, FMOD::System* system, FMOD_VECTOR
 	_volume = 1.0f;
 	_pan = 1.0f;
 	_pitch = 1.0f;
+
+	_dir = { 1.0f, 0.0f, 0.0f };
+
 }
 
 
@@ -25,4 +28,6 @@ void AudioSource::Play()
 {
 	_result = _system->playSound(_sound, 0, false, &_channel);
 	_result = _channel->set3DAttributes(&_sourcePos, &_sourceVel);
+	_channel->set3DConeOrientation(&_dir);
+	_channel->set3DConeSettings(10.0f, 15.0f, 0.5f);
 }

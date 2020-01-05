@@ -4,6 +4,10 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <fmod.hpp>
+#include "AudioListener.h"
+#include "AudioSource.h"
+#include "FmodSystem.h"
 
 class Board
 {
@@ -15,8 +19,8 @@ private:
 	void ReadFromTextFile(std::string filename);
 	void CreateBoard(int rows, int cols);
 
-	int _listenerPos[2];
-	int _sourcePos[2];
+	AudioListener _listener;
+	AudioSource _source;
 public:
 	Board();
 	~Board();

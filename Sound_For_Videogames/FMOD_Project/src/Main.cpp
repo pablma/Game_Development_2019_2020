@@ -33,11 +33,11 @@ int main()
 	Board board = Board();
 	board.render();
 
-	AudioSource _source = AudioSource("../res/Robert Miles - Children.ogg", FmodSystem::getFmodSystem(), { 1, 0, 0 }, { 0, 0, 0 });
-	_source.Play();
-	
+	//AudioSource _source = AudioSource("../res/Robert Miles - Children.ogg", FmodSystem::getFmodSystem(), { 1, 0, 0 }, { 0, 0, 0 });
+	//_source.Play();
+	//
 
-	AudioListener _listener = AudioListener(FmodSystem::getFmodSystem(), { 100, 0, 0 }, { 0, 0, 0 }, {0, 1, 0}, {1, 0, 0});
+	//AudioListener _listener = AudioListener(FmodSystem::getFmodSystem(), { 100, 0, 0 }, { 0, 0, 0 }, {0, 1, 0}, {1, 0, 0});
 
 
 	while (true)

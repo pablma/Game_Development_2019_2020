@@ -12,7 +12,11 @@ private:
 	FMOD_VECTOR _up;	// Vector up
 	FMOD_VECTOR _at;	// Vector at: hacia donde mira
 public:
+	AudioListener() {};
 	AudioListener(FMOD::System* system, FMOD_VECTOR pos, FMOD_VECTOR vel, FMOD_VECTOR up, FMOD_VECTOR at);
 	~AudioListener();
+	
+	void setPosition(FMOD_VECTOR pos) { _listenerPos = pos; }
+	FMOD_VECTOR getPosition() { return _listenerPos; }
 };
 

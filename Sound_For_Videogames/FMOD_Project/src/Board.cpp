@@ -4,6 +4,9 @@
 
 Board::Board()
 {
+	_listener = AudioListener(FmodSystem::getFmodSystem(), { 0, 0, 0 }, { 0, 0, 0 }, { 0, 1, 0 }, { 1, 0, 0 });
+	_source = AudioSource("../res/Robert Miles - Children.ogg", FmodSystem::getFmodSystem(), { 1, 0, 0 }, { 0, 0, 0 });
+	_source.Play();
 	ReadFromTextFile("../res/board.txt");
 }
 
@@ -17,21 +20,18 @@ void Board::render()
 	for (int i = 0; i < rows; i++)
 	{
 		for (int j = 0; j < cols; j++)
-		{
-			
+		{			
 			if (_board[i][j] == ' ')
 				std::cout << ' ';
 			else if (_board[i][j] == 'L')
 			{
 				std::cout << 'L';
-				_listenerPos[0] = i;
-				_listenerPos[1] = j;
+				_listener.setPosition({(float)i , (float)j, 0});
 			}				
 			else if (_board[i][j] == 'S')
 			{
 				std::cout << 'S';
-				_sourcePos[0] = i;
-				_sourcePos[1] = j;
+				_source.setPosition({ (float)i, (float)j, 0 });
 			}
 			else if (_board[i][j] == '1')
 				std::cout << '1';
@@ -54,28 +54,28 @@ void Board::clear()
 
 void Board::Input(char c)
 {
-	_board[_listenerPos[0]][_listenerPos[1]] = '.';
-	_board[_sourcePos[0]][_sourcePos[1]] = '.';
+	_board[(int)_listener.getPosition().x][(int)_listener.getPosition().y] = '.';
+	_board[(int)_source.getPosition().x][(int)_source.getPosition().y] = '.';
 
 	if (c == 'a')
-		_listenerPos[1] = _listenerPos[1] - 2;
+		_listener.setPosition({ _listener.getPosition().x, _listener.getPosition().y - 2, 0 });
 	else if (c == 'd')
-		_listenerPos[1] = _listenerPos[1] + 2;
+		_listener.setPosition({ _listener.getPosition().x, _listener.getPosition().y + 2, 0 });
 	else if (c == 'w')
-		_listenerPos[0] = _listenerPos[0] - 1;
+		_listener.setPosition({ _listener.getPosition().x - 1, _listener.getPosition().y, 0 });
 	else if (c == 's')
-		_listenerPos[0] = _listenerPos[0] + 1;
+		_listener.setPosition({ _listener.getPosition().x + 1, _listener.getPosition().y, 0 });
 	else if (c == 'j')
-		_sourcePos[1] = _sourcePos[1] - 2;
+		_source.setPosition({ _source.getPosition().x, _source.getPosition().y - 2, 0});
 	else if (c == 'l')
-		_sourcePos[1] = _sourcePos[1] + 2;
+		_source.setPosition({ _source.getPosition().x, _source.getPosition().y + 2, 0 });
 	else if (c == 'i')
-		_sourcePos[0] = _sourcePos[0] - 1;
+		_source.setPosition({ _source.getPosition().x - 1, _source.getPosition().y, 0 });
 	else if (c == 'k')
-		_sourcePos[0] = _sourcePos[0] + 1;
+		_source.setPosition({ _source.getPosition().x + 1, _source.getPosition().y, 0 });
 
-	_board[_listenerPos[0]][_listenerPos[1]] = 'L';
-	_board[_sourcePos[0]][_sourcePos[1]] = 'S';
+	_board[(int)_listener.getPosition().x][(int)_listener.getPosition().y] = 'L';
+	_board[(int)_source.getPosition().x][(int)_source.getPosition().y] = 'S';
 
 	clear();
 	render();
