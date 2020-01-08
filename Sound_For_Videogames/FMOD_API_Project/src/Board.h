@@ -1,11 +1,14 @@
 #pragma once
 #include <iostream>
+#include "AudioListener.h"
 
 class Board
 {
 private:
 	int _rows = 20;
 	int _cols = 34;
+
+	AudioListener _listener;
 
 	int _listenerX = 4;
 	int _listenerY = 4;

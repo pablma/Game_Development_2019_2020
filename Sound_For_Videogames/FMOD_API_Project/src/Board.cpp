@@ -2,7 +2,7 @@
 
 Board::Board()
 {
-
+	_listener = AudioListener({ 4, 4, 0 }, { 0, 0, 0 }, { 0, 1, 0 }, {1, 0, 0});
 }
 
 Board::~Board()
@@ -39,7 +39,7 @@ void Board::render()
 	{
 		for (int j = 0; j < _cols; j++)
 		{
-			if (_listenerX == j && _listenerY == i)
+			if (_listener.getPosition().x == j && _listener.getPosition().y == i)
 				std::cout << "L ";
 			else if (_sourceX == j && _sourceY == i)
 				std::cout << "S ";
