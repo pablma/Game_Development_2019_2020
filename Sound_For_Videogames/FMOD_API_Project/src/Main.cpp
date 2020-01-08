@@ -40,6 +40,7 @@ int main()
 			board.clear();
 			board.render();
 		}
+		FMOD_System::update();
 	}
 
 	return 0;

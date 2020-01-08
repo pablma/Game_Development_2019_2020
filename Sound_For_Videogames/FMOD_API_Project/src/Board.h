@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include "AudioListener.h"
+#include "AudioSource.h"
 
 class Board
 {
@@ -9,12 +10,7 @@ private:
 	int _cols = 34;
 
 	AudioListener _listener;
-
-	int _listenerX = 4;
-	int _listenerY = 4;
-
-	int _sourceX = 6;
-	int _sourceY = 6;
+	AudioSource _source;
 
 public:
 	Board();
