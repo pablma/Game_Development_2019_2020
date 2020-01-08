@@ -3,7 +3,7 @@
 Board::Board()
 {
 	_listener = AudioListener({ 4, 4, 0 }, { 0, 0, 0 }, { 0, 1, 0 }, {0, 0, -1});
-	_source = AudioSource({ 14, 15, 0 }, { 0, 0, 0 });
+	_source = AudioSource({ 14, 15, 0 }, { 0, 0, 0 }, {1, 0, 0});
 }
 
 Board::~Board()
@@ -28,6 +28,14 @@ void Board::input(char c)
 		_source.setPosition({ _source.getPosition().x,  _source.getPosition().y - 1, 0 });
 	else if (c == 'k')
 		_source.setPosition({ _source.getPosition().x,  _source.getPosition().y + 1, 0 });
+	else if (c == 'z')
+		_source.increaseInternalConeAngle(1);
+	else if (c == 'x')
+		_source.decreaseInternalConeAngle(1);
+	else if (c == 'c')
+		_source.increaseExternalConeAngle(1);
+	else if (c == 'v')
+		_source.decreaseExternalConeAngle(1);
 }
 
 void Board::update()
