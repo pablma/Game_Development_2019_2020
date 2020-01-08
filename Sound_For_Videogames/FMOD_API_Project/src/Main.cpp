@@ -1,10 +1,14 @@
 #include <conio.h>
 #include "Piano.h"
+#include "Board.h"
 
 int main()
 {
+	// Inicialización FMOD
 	FMOD_System::init();
-	FMOD_Sound sound = FMOD_Sound("music.ogg");
+	
+	// Ejericio 1
+	/*FMOD_Sound sound = FMOD_Sound("music.ogg");
 
 	sound.Play();
 	sound.FadeOut(5000);
@@ -12,9 +16,9 @@ int main()
 	while (true)
 	{
 		sound.Tick();			
-	}
+	}*/
 	
-	
+	// Ejercicio Piano
 	//Piano piano = Piano();
 
 	//while (true)
@@ -23,6 +27,20 @@ int main()
 	//	piano.update();
 	//}
 
-	system("pause");
+	Board board = Board();
+	
+	board.clear();
+	board.render();
+
+	while (true)
+	{
+		if (_kbhit())
+		{
+			board.input(_getch());
+			board.clear();
+			board.render();
+		}
+	}
+
 	return 0;
 }
