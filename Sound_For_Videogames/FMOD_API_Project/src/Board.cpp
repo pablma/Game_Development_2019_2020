@@ -61,6 +61,8 @@ void Board::render()
 				std::cout << "L ";
 			else if (_source.getPosition().x == j && _source.getPosition().y == i)
 				std::cout << "S ";
+			else if (i == 10 && j > 7 && j < 25)
+				std::cout << "==";	
 			else
 				std::cout << ". ";
 		}
