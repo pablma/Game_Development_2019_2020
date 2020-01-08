@@ -12,6 +12,9 @@ AudioSource::AudioSource(FMOD_VECTOR pos, FMOD_VECTOR vel) : _pos(pos), _vel(vel
 	_result = FMOD_System::getFMODSystem()->playSound(_sound, 0, true, &_channel);
 	FMOD_System::ERRCHECK(_result);
 
+	_result = _channel->set3DMinMaxDistance(_minDistance, _maxDistance);
+	FMOD_System::ERRCHECK(_result);
+
 	_result = _channel->set3DAttributes(&_pos, &_vel);
 	FMOD_System::ERRCHECK(_result);
 
@@ -25,6 +28,9 @@ AudioSource::AudioSource(FMOD_VECTOR pos, FMOD_VECTOR vel, FMOD_VECTOR coneDir) 
 	FMOD_System::ERRCHECK(_result);
 
 	_result = FMOD_System::getFMODSystem()->playSound(_sound, 0, true, &_channel);
+	FMOD_System::ERRCHECK(_result);
+
+	_result = _channel->set3DMinMaxDistance(_minDistance, _maxDistance);
 	FMOD_System::ERRCHECK(_result);
 
 	_result = _channel->set3DAttributes(&_pos, &_vel);
@@ -81,5 +87,33 @@ void AudioSource::decreaseExternalConeAngle(float decrease)
 {
 	_externalConeAngle -= decrease;
 	_result = _channel->set3DConeSettings(_internalConeAngle, _externalConeAngle, 0.0f);
+	FMOD_System::ERRCHECK(_result);
+}
+
+void AudioSource::increaseMinDistance(float increase)
+{
+	_minDistance += increase;
+	_result = _channel->set3DMinMaxDistance(_minDistance, _maxDistance);
+	FMOD_System::ERRCHECK(_result);
+}
+
+void AudioSource::decreaseMinDistance(float decrease)
+{
+	_minDistance -= decrease;
+	_result = _channel->set3DMinMaxDistance(_minDistance, _maxDistance);
+	FMOD_System::ERRCHECK(_result);
+}
+
+void AudioSource::increaseMaxDistance(float increase)
+{
+	_maxDistance += increase;
+	_result = _channel->set3DMinMaxDistance(_minDistance, _maxDistance);
+	FMOD_System::ERRCHECK(_result);
+}
+
+void AudioSource::decreaseMaxDistance(float decrease)
+{
+	_maxDistance -= decrease;
+	_result = _channel->set3DMinMaxDistance(_minDistance, _maxDistance);
 	FMOD_System::ERRCHECK(_result);
 }

@@ -12,6 +12,9 @@ private:
 	float _externalConeAngle = 60.0f;
 	float _internalConeAngle = 30.0f;
 
+	float _minDistance = 0.1f;
+	float _maxDistance = 100000.0f;
+
 	FMOD::Sound* _sound = nullptr;
 	FMOD::Channel* _channel = nullptr;
 
@@ -29,4 +32,9 @@ public:
 	void decreaseInternalConeAngle(float decrease);
 	void increaseExternalConeAngle(float increase);
 	void decreaseExternalConeAngle(float decrease);
+
+	void increaseMinDistance(float increase);
+	void decreaseMinDistance(float decrease);
+	void increaseMaxDistance(float increase);
+	void decreaseMaxDistance(float decrease);
 };

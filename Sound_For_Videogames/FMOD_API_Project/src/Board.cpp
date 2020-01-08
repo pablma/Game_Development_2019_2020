@@ -36,6 +36,15 @@ void Board::input(char c)
 		_source.increaseExternalConeAngle(1);
 	else if (c == 'v')
 		_source.decreaseExternalConeAngle(1);
+	else if (c == 'q')
+		_source.increaseMinDistance(0.5);
+	else if (c == 'e')
+		_source.decreaseMinDistance(0.5);
+	else if (c == 'r')
+		_source.increaseMaxDistance(0.5);
+	else if (c == 't')
+		_source.decreaseMaxDistance(0.5);
+
 }
 
 void Board::update()
