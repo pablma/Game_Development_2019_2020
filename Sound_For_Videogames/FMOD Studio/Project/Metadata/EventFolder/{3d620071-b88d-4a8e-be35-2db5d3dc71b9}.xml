@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="EventFolder" id="{3d620071-b88d-4a8e-be35-2db5d3dc71b9}">
+        <property name="name">
+            <value>FMOD Studio Exercise</value>
+        </property>
+        <relationship name="folder">
+            <destination>{a5b13246-21c5-4ec4-83b2-f61d664e9bd8}</destination>
+        </relationship>
+    </object>
+</objects>
