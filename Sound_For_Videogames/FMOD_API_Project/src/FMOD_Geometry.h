@@ -7,7 +7,7 @@ private:
 	FMOD::Geometry* _geometry = nullptr;
 
 	int _polygonIndex;
-	float _directOcclusion = 1f;
+	float _directOcclusion = 1.0f;
 	float _reverbOcclusion;
 	const int _numVertices = 4;
 	bool _doubleSided = true;

@@ -24,7 +24,7 @@ AudioSource::AudioSource(FMOD_VECTOR pos, FMOD_VECTOR vel) : _pos(pos), _vel(vel
 
 AudioSource::AudioSource(FMOD_VECTOR pos, FMOD_VECTOR vel, FMOD_VECTOR coneDir) : _pos(pos), _vel(vel), _coneDir(coneDir)
 {
-	_result = FMOD_System::getFMODSystem()->createSound("../res/music.ogg", FMOD_3D | FMOD_LOOP_NORMAL, 0, &_sound);
+	_result = FMOD_System::getFMODSystem()->createSound("../res/footstep.wav", FMOD_3D | FMOD_LOOP_NORMAL, 0, &_sound);
 	FMOD_System::ERRCHECK(_result);
 
 	_result = FMOD_System::getFMODSystem()->playSound(_sound, 0, true, &_channel);
