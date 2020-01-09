@@ -19,30 +19,30 @@ int main()
 	//}
 	
 	// ----------- Ejercicio Piano -----------
-	Piano piano = Piano();
-
-	while (true)
-	{
-		piano.input(_getch());
-		//piano.update();
-	}
-
-	// ----------- FMOD 3D -----------
-	//Board board = Board();
-	//
-	//board.clear();
-	//board.render();
+	//Piano piano = Piano();
 
 	//while (true)
 	//{
-	//	if (_kbhit())
-	//	{
-	//		board.input(_getch());
-	//		board.clear();
-	//		board.render();
-	//	}
-	//	FMOD_System::update();
+	//	piano.input(_getch());
+	//	//piano.update();
 	//}
+
+	// ----------- FMOD 3D -----------
+	Board board = Board();
+	
+	board.clear();
+	board.render();
+
+	while (true)
+	{
+		if (_kbhit())
+		{
+			board.input(_getch());
+			board.clear();
+			board.render();
+		}
+		FMOD_System::update();
+	}
 
 	return 0;
 }

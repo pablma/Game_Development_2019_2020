@@ -2,8 +2,9 @@
 
 Board::Board()
 {
-	_listener = AudioListener({ 4, 4, 0 }, { 0, 0, 0 }, { 0, 1, 0 }, {0, 0, -1});
+	_listener = AudioListener({ 4, 4, 0 }, { 0, 0, 0 }, { 0, 1, 0 }, {0, 0, 1});
 	_source = AudioSource({ 14, 15, 0 }, { 0, 0, 0 }, {0, -1, 0});
+	_geometry.init();
 	_reverb1 = FMOD_Reverb({17, 4, 0}, 10.0f, 20.0f, FMOD_PRESET_CONCERTHALL);
 	_reverb2 = FMOD_Reverb({ 12, 13, 0 }, 10.0f, 20.0f, FMOD_PRESET_CITY);
 }

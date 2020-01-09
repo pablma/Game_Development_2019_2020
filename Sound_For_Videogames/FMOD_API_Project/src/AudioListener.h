@@ -7,8 +7,8 @@ class AudioListener
 private:
 	FMOD_VECTOR _pos;	// posicion del listener
 	FMOD_VECTOR _vel;	// velocidad del listener
-	FMOD_VECTOR _up;	// vector up: hacia la ``coronilla''
-	FMOD_VECTOR _at;	// vector at: hacia donde mira
+	FMOD_VECTOR _up;	// vector up: hacia la ``coronilla'', posición del listener
+	FMOD_VECTOR _at;	// vector at: hacia donde mira, 
 
 	FMOD_RESULT _result;
 public:
