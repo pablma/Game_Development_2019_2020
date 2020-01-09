@@ -57,6 +57,9 @@ void updateSystem();
 void release();
 void ERRCHECK(FMOD_RESULT result);
 
+void ShowDebug();
+void clear();
+
 int main()
 {
 	// Inicialización FMOD 
@@ -106,12 +109,8 @@ int main()
 
 
 	// Debug Inicial
-	std::cout << "Listener Position: " << "(" << _listenerPos.x << ", " << _listenerPos.y << ", " << _listenerPos.z << ")\n";
-	std::cout << "Source Position: " << "(" << _sourcePos.x << ", " << _sourcePos.y << ", " << _sourcePos.z << ")\n";
-	std::cout << "Source Pitch: " << _sourcePitch << "\n";
-	std::cout << "Reverb Active: " << _reverbActive << "\n";
-	std::cout << "Occlusion Active: " << _geometryActive << "\n";
-	
+	ShowDebug();
+
 
 	// Bucle ppal
 	char c;
@@ -161,12 +160,8 @@ int main()
 
 								
 				// Debug
-				system("CLS");
-				std::cout << "Listener Position: " << "(" << _listenerPos.x << ", " << _listenerPos.y << ", " << _listenerPos.z << ")\n";
-				std::cout << "Source Position: " << "(" << _sourcePos.x << ", " << _sourcePos.y << ", " << _sourcePos.z << ")\n";
-				std::cout << "Source Pitch: " << _sourcePitch << "\n";
-				std::cout << "Reverb Active: " << _reverbActive << "\n";
-				std::cout << "Occlusion Active: " << _geometryActive << "\n";
+				clear();
+				ShowDebug();
 			}
 		}
 		updateSystem();
@@ -237,4 +232,18 @@ void ERRCHECK(FMOD_RESULT result)
 		// printf("FMOD error %d - %s", result, FMOD_ErrorString(result));
 		exit(-1);
 	}
+}
+
+void ShowDebug()
+{
+	std::cout << "Listener Position: " << "(" << _listenerPos.x << ", " << _listenerPos.y << ", " << _listenerPos.z << ")\n";
+	std::cout << "Source Position: " << "(" << _sourcePos.x << ", " << _sourcePos.y << ", " << _sourcePos.z << ")\n";
+	std::cout << "Source Pitch: " << _sourcePitch << "\n";
+	std::cout << "Reverb Active: " << _reverbActive << "\n";
+	std::cout << "Occlusion Active: " << _geometryActive << "\n";
+}
+
+void clear()
+{
+	system("CLS");
 }
