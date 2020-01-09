@@ -260,7 +260,7 @@ maxDistance: distancia a partir de la cual el sonido no se atenúa más
 
 // REVERB
 // --------- Creando una Reverb ---------
-Reverb *reverb;
+Reverb3D *reverb;
 result = system->createReverb3D(&reverb);
 FMOD_REVERB_PROPERTIES prop2 = FMOD_PRESET_CONCERTHALL;
 reverb->setProperties(&prop2);
