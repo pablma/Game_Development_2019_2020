@@ -117,52 +117,51 @@ int main()
 	while (true)
 	{
 		if (_kbhit()) {
-			if (c = _getch())
-			{
-				if (c == 'q')
-					break;
-				else if (c == 'a')
-					SetListenerPos({ _listenerPos.x -= 0.1f, _listenerPos.y, _listenerPos.z });
-				else if (c == 'd')
-					SetListenerPos({ _listenerPos.x += 0.1f, _listenerPos.y, _listenerPos.z });
-				else if (c == 'w')
-					SetListenerPos({ _listenerPos.x, _listenerPos.y, _listenerPos.z += 0.1f });
-				else if (c == 's')
-					SetListenerPos({ _listenerPos.x, _listenerPos.y, _listenerPos.z -= 0.1f });
-				else if (c == 'P')
-					IncreaseSourcePitch(0.01f);
-				else if (c == 'p')
-					DecreaseSourcePitch(0.01f);
-				else if (c == 'R') {
-					_result = _reverb->setActive(true);
-					ERRCHECK(_result);
+			c = _getch();
 
-					_reverbActive = true;
-				}
-				else if (c == 'r') {
-					_result = _reverb->setActive(false);
-					ERRCHECK(_result);
+			if (c == 'q')
+				break;
+			else if (c == 'a')
+				SetListenerPos({ _listenerPos.x -= 0.1f, _listenerPos.y, _listenerPos.z });
+			else if (c == 'd')
+				SetListenerPos({ _listenerPos.x += 0.1f, _listenerPos.y, _listenerPos.z });
+			else if (c == 'w')
+				SetListenerPos({ _listenerPos.x, _listenerPos.y, _listenerPos.z += 0.1f });
+			else if (c == 's')
+				SetListenerPos({ _listenerPos.x, _listenerPos.y, _listenerPos.z -= 0.1f });
+			else if (c == 'P')
+				IncreaseSourcePitch(0.01f);
+			else if (c == 'p')
+				DecreaseSourcePitch(0.01f);
+			else if (c == 'R') {
+				_result = _reverb->setActive(true);
+				ERRCHECK(_result);
 
-					_reverbActive = false;
-				}
-				else if (c == 'O') {
-					_result = _geometry->setActive(true);
-					ERRCHECK(_result);
-
-					_geometryActive = true;
-				}
-				else if (c == 'o') {
-					_result = _geometry->setActive(false);
-					ERRCHECK(_result);
-
-					_geometryActive = false;
-				}
-
-								
-				// Debug
-				clear();
-				ShowDebug();
+				_reverbActive = true;
 			}
+			else if (c == 'r') {
+				_result = _reverb->setActive(false);
+				ERRCHECK(_result);
+
+				_reverbActive = false;
+			}
+			else if (c == 'O') {
+				_result = _geometry->setActive(true);
+				ERRCHECK(_result);
+
+				_geometryActive = true;
+			}
+			else if (c == 'o') {
+				_result = _geometry->setActive(false);
+				ERRCHECK(_result);
+
+				_geometryActive = false;
+			}
+
+			// Debug
+			clear();
+			ShowDebug();
+			
 		}
 		updateSystem();
 	}

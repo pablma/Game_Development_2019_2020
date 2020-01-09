@@ -152,13 +152,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\FMOD_Sound.cpp" />
-    <ClCompile Include="..\..\src\FMOD_System.cpp" />
     <ClCompile Include="..\..\src\Main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\src\FMOD_Sound.h" />
-    <ClInclude Include="..\..\src\FMOD_System.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
