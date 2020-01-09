@@ -3,7 +3,9 @@
 Board::Board()
 {
 	_listener = AudioListener({ 4, 4, 0 }, { 0, 0, 0 }, { 0, 1, 0 }, {0, 0, -1});
-	_source = AudioSource({ 14, 15, 0 }, { 0, 0, 0 }, {1, 0, 0});
+	_source = AudioSource({ 14, 15, 0 }, { 0, 0, 0 }, {0, -1, 0});
+	_reverb1 = FMOD_Reverb({17, 4, 0}, 10.0f, 20.0f, FMOD_PRESET_CONCERTHALL);
+	_reverb2 = FMOD_Reverb({ 12, 13, 0 }, 10.0f, 20.0f, FMOD_PRESET_CITY);
 }
 
 Board::~Board()
@@ -61,6 +63,10 @@ void Board::render()
 				std::cout << "L ";
 			else if (_source.getPosition().x == j && _source.getPosition().y == i)
 				std::cout << "S ";
+			else if (_reverb1.getPosition().x == j && _reverb1.getPosition().y == i)
+				std::cout << "1 ";
+			else if (_reverb2.getPosition().x == j && _reverb2.getPosition().y == i)
+				std::cout << "2 ";
 			else if (i == 10 && j > 7 && j < 25)
 				std::cout << "==";	
 			else

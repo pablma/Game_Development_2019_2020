@@ -155,6 +155,8 @@
     <ClCompile Include="..\..\src\AudioListener.cpp" />
     <ClCompile Include="..\..\src\AudioSource.cpp" />
     <ClCompile Include="..\..\src\Board.cpp" />
+    <ClCompile Include="..\..\src\FMOD_Geometry.cpp" />
+    <ClCompile Include="..\..\src\FMOD_Reverb.cpp" />
     <ClCompile Include="..\..\src\FMOD_Sound.cpp" />
     <ClCompile Include="..\..\src\FMOD_System.cpp" />
     <ClCompile Include="..\..\src\Main.cpp" />
@@ -164,6 +166,8 @@
     <ClInclude Include="..\..\src\AudioListener.h" />
     <ClInclude Include="..\..\src\AudioSource.h" />
     <ClInclude Include="..\..\src\Board.h" />
+    <ClInclude Include="..\..\src\FMOD_Geometry.h" />
+    <ClInclude Include="..\..\src\FMOD_Reverb.h" />
     <ClInclude Include="..\..\src\FMOD_Sound.h" />
     <ClInclude Include="..\..\src\FMOD_System.h" />
     <ClInclude Include="..\..\src\Piano.h" />

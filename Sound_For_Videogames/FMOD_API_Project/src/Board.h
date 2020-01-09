@@ -2,6 +2,7 @@
 #include <iostream>
 #include "AudioListener.h"
 #include "AudioSource.h"
+#include "FMOD_Reverb.h"
 
 class Board
 {
@@ -12,6 +13,8 @@ private:
 	AudioListener _listener;
 	AudioSource _source;
 
+	FMOD_Reverb _reverb1;
+	FMOD_Reverb _reverb2;
 public:
 	Board();
 	~Board();

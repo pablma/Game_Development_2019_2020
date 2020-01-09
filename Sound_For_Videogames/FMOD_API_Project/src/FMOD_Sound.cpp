@@ -14,6 +14,8 @@ FMOD_Sound::FMOD_Sound(std::string filename)
 
 FMOD_Sound::~FMOD_Sound()
 {
+	_result = _sound->release();
+	FMOD_System::ERRCHECK(_result);
 }
 
 void FMOD_Sound::Play()
@@ -28,6 +30,7 @@ void FMOD_Sound::Pause()
 
 void FMOD_Sound::Stop()
 {
+	_result = _channel->stop();
 }
 
 void FMOD_Sound::Tick()

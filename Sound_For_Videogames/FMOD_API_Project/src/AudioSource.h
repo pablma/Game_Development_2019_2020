@@ -9,10 +9,10 @@ private:
 	FMOD_VECTOR _vel;	// velocidad del source
 	FMOD_VECTOR _coneDir;	// dirección del cono
 	
-	float _externalConeAngle = 60.0f;
-	float _internalConeAngle = 30.0f;
+	float _externalConeAngle = 80.0f;
+	float _internalConeAngle = 45.0f;
 
-	float _minDistance = 0.1f;
+	float _minDistance = 1.5f;
 	float _maxDistance = 100000.0f;
 
 	FMOD::Sound* _sound = nullptr;
