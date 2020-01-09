@@ -329,3 +329,50 @@ dimensiones por separado
 
 	_geometry->addPolygon(_directOcclusion, _reverbOcclusion, _doubleSided, _numVertices, _vertices, &_polygonIndex);
 }
+
+// BANCOS DE SONIDO
+
+// --------- Cargando la SoundBank ---------
+// No olvidar incluir #include <fmod_studio.hpp>
+// Meter el evento en el Master Bank
+// En la pestaña Events poner el evento sin carpetas ni nada
+
+FMOD::Studio::System* system = NULL;
+	FMOD::Studio::System::create(&system);
+
+	// The example Studio project is authored for 5.1 sound, so set up the system output mode to match
+	FMOD::System* coreSystem = NULL;
+	system->getCoreSystem(&coreSystem);
+	coreSystem->setSoftwareFormat(0, FMOD_SPEAKERMODE_5POINT1, 0);
+
+	system->initialize(1024, FMOD_STUDIO_INIT_NORMAL, FMOD_INIT_NORMAL, 0);
+
+	FMOD::Studio::Bank* masterBank = NULL;
+	system->loadBankFile("../res/Master Bank.bank", FMOD_STUDIO_LOAD_BANK_NORMAL, &masterBank);
+
+	FMOD::Studio::Bank* stringsBank = NULL;
+	system->loadBankFile("../res/Master Bank.strings.bank", FMOD_STUDIO_LOAD_BANK_NORMAL, &stringsBank);
+
+	// Get the Looping Ambience event
+	FMOD::Studio::EventDescription* pasos = NULL;
+	_result = system->getEvent("event:/Pasos", &pasos);
+	ERRCHECK(_result);
+
+	FMOD::Studio::EventInstance* pasosInstance = NULL;
+	pasos->createInstance(&pasosInstance);
+
+	pasosInstance->start();
+
+	pasosInstance->setParameterByName("Velocidad", 0.5);
+
+	do
+	{
+		system->update();
+	} while (true);
+
+	stringsBank->unload();
+	masterBank->unload();
+
+	system->release();
+
+	return 0;
