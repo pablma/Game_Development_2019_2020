@@ -6,8 +6,23 @@ Board::Board()
 	_source = AudioSource({ 14, 15, 0 }, { 0, 0, 0 }, {0, -1, 0});
 	_geometry.init();
 	
-	_reverb1 = FMOD_Reverb({14, 7, 0}, 10.0f, 20.0f, FMOD_PRESET_BATHROOM);
-	_reverb2 = FMOD_Reverb({ 12, 13, 0 }, 10.0f, 20.0f, FMOD_PRESET_CITY);
+	//FMOD::Reverb3D* reverb1;
+	//FMOD_System::getFMODSystem()->createReverb3D(&reverb1);
+	//FMOD_REVERB_PROPERTIES prop1 = FMOD_PRESET_CONCERTHALL;
+	//reverb1->setProperties(&prop1);
+	//FMOD_VECTOR pos1_ = { 0, 0, 0 };
+	//float mindist = 10, maxdist = 20;
+	//reverb1->set3DAttributes(&pos1_, mindist, maxdist);
+
+	//FMOD::Reverb3D* reverb2;
+	//FMOD_System::getFMODSystem()->createReverb3D(&reverb2);
+	//FMOD_REVERB_PROPERTIES prop2 = FMOD_PRESET_BATHROOM;
+	//reverb2->setProperties(&prop2);
+	//FMOD_VECTOR pos2_ = { 12, 13, 0 };
+	//reverb2->set3DAttributes(&pos2_, mindist, maxdist);
+
+	_reverb1 = FMOD_Reverb({0, 0, 0}, 10.0f, 20.0f, FMOD_PRESET_BATHROOM);
+	//_reverb2 = FMOD_Reverb({ 12, 13, 0 }, 10.0f, 20.0f, FMOD_PRESET_CITY);
 }
 
 Board::~Board()

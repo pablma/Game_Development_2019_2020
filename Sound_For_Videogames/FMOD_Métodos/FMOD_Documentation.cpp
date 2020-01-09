@@ -256,3 +256,76 @@ minDistance: distancia a partir de la cual el sonido comienza a
 atenuarse
 maxDistance: distancia a partir de la cual el sonido no se atenúa más
 (el volumen no es necesariamente 0.0)
+
+
+// REVERB
+// --------- Creando una Reverb ---------
+Reverb *reverb;
+result = system->createReverb3D(&reverb);
+FMOD_REVERB_PROPERTIES prop2 = FMOD_PRESET_CONCERTHALL;
+reverb->setProperties(&prop2);
+FMOD_VECTOR pos = { -10.0f, 0.0f, 0.0f };
+float mindist = 10.0f, maxdist = 20.0f;
+reverb->set3DAttributes(&pos, mindist, maxdist);
+
+Las reverb pueden activarse o desactivarse con reverb->setActive(false)
+
+// GEOMETRÍAS
+// --------- Creando una Geometría ---------
+FMOD::Geometry* geometry;
+system->createGeometry(maxPoligons, maxVertices, &geometry);
+
+// --------- Ubicando la Geometría ---------
+int polygonIndex; // Indice al poligono para referenciarlo despues
+geometry->addPolygon(
+float directocclusion, // 0.0 no atenua, 1.0 atenua totalmente
+float reverbOcclusion, // atenuacion de la reverberacion
+bool doubleSided, // atenua por ambos lados o no
+int numVertices, // numero de vertices (>=3)
+const FMOD_VECTOR *vertices, // vector de numVertices vertices
+int *polygonindex); // indice del poligono generado
+
+Todos los vértices deben estar en el mismo plano.
+Tienen que ir ordenados en sentido antihorario
+Los polígonos deben ser convexos y con área positiva.
+Posición de los vértices relativa a la posición (o centro) del objeto, utilizada en
+setPosition:
+setPosition(FMOD_VECTOR pos): sitúa el objeto geometry en pos, relativa al
+espacio del listener y los canales.
+setRotation(FMOD_VECTOR *forward, FMOD_VECTOR *up): orientación del
+objeto
+setScale(FMOD_VECTOR scale): escala relativa de geometry en las 3
+dimensiones por separado
+
+// --------- Ejemplo Geometría ---------
+// Ficero.h
+	FMOD::Geometry* _geometry = nullptr;
+
+	int _polygonIndex;
+	float _directOcclusion = 1.0f;
+	float _reverbOcclusion;
+	const int _numVertices = 4;
+	bool _doubleSided = true;
+	FMOD_VECTOR _vertices[4];
+
+	FMOD_VECTOR _vA = {24, 10, -1};
+	FMOD_VECTOR _vB = {24, 10, 1};
+	FMOD_VECTOR _vC = {8, 10, 1};
+	FMOD_VECTOR _vD = {8, 10, -1};
+
+	FMOD_RESULT _result;
+	
+// Fichero.cpp
+	void FMOD_Geometry::init()
+{
+	_result = FMOD_System::getFMODSystem()->createGeometry(4, 4, &_geometry);
+	FMOD_System::ERRCHECK(_result);
+
+	_vertices[0] = _vA;
+	_vertices[1] = _vB;
+	_vertices[2] = _vC;
+	_vertices[3] = _vD;
+
+
+	_geometry->addPolygon(_directOcclusion, _reverbOcclusion, _doubleSided, _numVertices, _vertices, &_polygonIndex);
+}
