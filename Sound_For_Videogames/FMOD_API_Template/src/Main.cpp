@@ -1,7 +1,7 @@
 ﻿#include <iostream>
 #include <conio.h>
-#include <fmod.hpp>
 #include <fmod_errors.h>
+#include <fmod.hpp>
 
 
 // Atributos System
@@ -12,6 +12,8 @@ FMOD_RESULT _result;
 FMOD::Sound* _sound;
 FMOD::Channel* _channel;
 
+// Atributos Listener
+FMOD_VECTOR _listenerPos;
 
 // Declaración de funciones
 void initSystem();

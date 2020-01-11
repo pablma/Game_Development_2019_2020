@@ -11,7 +11,7 @@ def main():
     X, y, Xtest, ytest, Xval, yval = load_data(data_filename)
 
     theta = np.ones(X.shape)
-    l = 1
+    l = 0
 
     result = cost(theta, X, y, l)
 
@@ -37,6 +37,10 @@ def h(theta, x):
     return np.dot(theta.T, x)
 
 
+def sigmoid(z):
+    return 1 / (1 + np.exp(-z))
+
+
 def cost(theta, x, y ,l):
     m = x.shape[0]
     sum1 = 0
@@ -47,6 +51,30 @@ def cost(theta, x, y ,l):
     sum2 = np.sum((theta)**2)
 
     return (sum1 / (2 * m)) + ((l * (sum2)) / (2 * m))
+
+
+def gradient(theta, x, y, l):
+   
+    """
+    Compute the gradient.
+    Args:
+        theta: array shape(n+1, 1) 
+        X: array shape(m, n+1) 
+        y: array shape(m, 1)
+        lambda_coef: int
+    Returns:
+        gradient: array shape(n+1, m)
+    """
+    m = x.shape[0]
+    h_theta = sigmoid(np.dot(x, theta.T))
+   
+    # Exclude theta_0!!!
+    reg_term = (l / m) * (theta[1:])
+    gradient = (1 / m) * np.dot(x.T, (h_theta - y))
+    print(gradient[1:].shape)
+    print(reg_term.shape)
+    gradient[1:] = gradient[1:] + reg_term
+    return gradient
    
 """
 def reg_cost(theta, x_samples, y_samples, l):
